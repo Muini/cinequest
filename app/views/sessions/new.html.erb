@@ -1,2 +1,14 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h1>Connexion</h1>
+<p>CineQuest's time !</p>
+
+<%= form_for(:session, url: login_path) do |f| %> 
+  <%= f.label "Pseudo" %>:    
+  <%= f.text_field :pseudo, placeholder:"Un1C0rN" %><br/>
+  
+  <%= f.label "Mot de passe" %>:
+  <%= f.password_field :password, type: "password" %><br/>
+
+  <%= f.submit "Let's do this !" %> 
+<% end %>
+
+<p>Pas encore inscrit ? <%= link_to "Sign up now !", signin_path %></p>

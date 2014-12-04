@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Vous vous êtes bien inscrit !"
-      redirect_to @user
+      redirect_to "../index"
     else
       render :new
     end
@@ -19,15 +19,12 @@ class UsersController < ApplicationController
 # Users listing
   def users_list
     # @users_pseudo = User.all.map{|x| x.pseudo} 
-    @users = User.all
-  end
-  def index
-    redirect_to "/users_list"
+    @users = User.order("credits").all
   end
     
-# Profil
-  def show
-    @user = User.find(params[:id])
+# Profil par pseudo :D
+  def user_profil
+    @user = User.find_by(pseudo: params[:pseudo])
     if @user.nil?
       flash[:alert] = "Cet utilisateur n'existe pas !"
       redirect_to "/index"
