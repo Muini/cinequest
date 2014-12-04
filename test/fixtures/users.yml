@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pseudo: MyString
+  nom: MyString
+  prenom: MyString
+  email: MyString
+  url_img: MyString
+  mdp: MyString
+  credits: 1
+  r_credits: 1
+  king: false
+
+two:
+  pseudo: MyString
+  nom: MyString
+  prenom: MyString
+  email: MyString
+  url_img: MyString
+  mdp: MyString
+  credits: 1
+  r_credits: 1
+  king: false
