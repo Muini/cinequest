@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [ :new, :create, :view ]
-    
+  skip_before_action :require_login, only: [ :new, :create, :users_list ]
+
+# Account creation
   def new
     @user = User.new
   end
@@ -14,23 +15,29 @@ class UsersController < ApplicationController
       render :new
     end
   end
-    
-  def view
-    @users_pseudo = User.all.map{|x| x.pseudo} 
+
+# Users listing
+  def users_list
+    # @users_pseudo = User.all.map{|x| x.pseudo} 
+    @users = User.all
+  end
+  def index
+    redirect_to "/users_list"
   end
     
+# Profil
   def show
-    # Profil
     @user = User.find(params[:id])
     if @user.nil?
       flash[:alert] = "Cet utilisateur n'existe pas !"
       redirect_to "/index"
     end
   end
-    
+
+# Private
   private
     
   def user_params
-  params.require(:user).permit(:pseudo,:nom,:prenom,:email,:mdp,:url_img)
+    params.require(:user).permit(:pseudo,:nom,:prenom,:email,:password,:url_img,:password_digest)
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204121817) do
+ActiveRecord::Schema.define(version: 20141204192945) do
 
   create_table "rushes", force: true do |t|
     t.date     "date_d"
@@ -26,13 +26,14 @@ ActiveRecord::Schema.define(version: 20141204121817) do
     t.string   "nom"
     t.string   "prenom"
     t.string   "email"
-    t.string   "url_img",    default: "http://corentinflach.fr/img/profil_default.jpg"
-    t.string   "mdp"
-    t.integer  "credits",    default: 0
-    t.integer  "r_credits",  default: 0
-    t.boolean  "king",       default: false,                                            null: false
+    t.string   "url_img",         default: "http://corentinflach.fr/img/profil_default.jpg"
+    t.string   "password"
+    t.integer  "credits",         default: 0
+    t.integer  "r_credits",       default: 0
+    t.boolean  "king",            default: false,                                            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end
