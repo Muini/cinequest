@@ -1,6 +1,6 @@
 <h1>Inscription</h1>
 <p>Inscrivez vous sur CineQuest</p>
-<%= @user.errors.full_messages %>
+<%= @user.errors.full_messages.join(", ") %>
 
 <%= form_for @user do |f| %> 
   <%= f.label "Pseudo" %>:    
@@ -16,9 +16,9 @@
   
   <%= f.label "Mot de passe" %>:
   <%= f.text_field :mdp, type: "password" %><p>20 caractères max</p><br/>
-  
+  <!-- img avec ajax check de l'url pour l'afficher -->
   <%= f.label "URL de l'image de profil" %>:    
   <%= f.text_field :url_img, placeholder:"http://img.jpg" %><br/> 
-  
+  <br/> 
   <%= f.submit "Que l'aventure commence !" %> 
 <% end %>
