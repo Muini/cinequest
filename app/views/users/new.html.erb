@@ -1,0 +1,24 @@
+<h1>Inscription</h1>
+<p>Inscrivez vous sur CineQuest</p>
+<%= @user.errors.full_messages %>
+
+<%= form_for @user do |f| %> 
+  <%= f.label "Pseudo" %>:    
+  <%= f.text_field :pseudo, placeholder:"xXxD4rKxXx" %><p>30 caractères max</p><br/>
+
+  <%= f.label "Nom" %>:    
+  <%= f.text_field :nom, placeholder:"John" %>
+  <%= f.label "Prenom" %>:    
+  <%= f.text_field :prenom, placeholder:"Rambo" %><br/>
+  
+  <%= f.label "e-mail" %>:
+  <%= f.text_field :email, placeholder:"hi@cinequest.fr"  %><br/>
+  
+  <%= f.label "Mot de passe" %>:
+  <%= f.text_field :mdp, type: "password" %><p>20 caractères max</p><br/>
+  
+  <%= f.label "URL de l'image de profil" %>:    
+  <%= f.text_field :url_img, placeholder:"http://img.jpg" %><br/> 
+  
+  <%= f.submit "Que l'aventure commence !" %> 
+<% end %>
