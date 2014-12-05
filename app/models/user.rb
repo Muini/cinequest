@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, length: { maximum: 255 }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6, maximum: 25 }
+  has_many :posts
 end

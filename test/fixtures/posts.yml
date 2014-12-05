@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url_img: MyString
+  url_film: MyString
+  user_id_id: 
+  found: false
+  hardlevel: false
+
+two:
+  url_img: MyString
+  url_film: MyString
+  user_id_id: 
+  found: false
+  hardlevel: false

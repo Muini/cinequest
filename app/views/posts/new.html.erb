@@ -1,0 +1,30 @@
+<h1>Création d'une quète</h1>
+
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@post.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @post do |f| %>
+  <!-- img avec ajax check de l'url pour l'afficher --> 
+  <%= f.label "URL de l'image" %>:    
+  <%= f.text_field :url_img, placeholder:"http://..." %><br/>
+  
+  <p>Les champs suivants seront affichés lorsque la quète sera close</p>
+
+  <%= f.label "Titre du film" %>:    
+  <%= f.text_field :film_name, placeholder:"Kill Boule vol4 episode 7 partie 1" %><br/>
+
+  <%= f.label "URL de la fiche film" %>:    
+  <%= f.text_field :url_film, placeholder:"http://vodkaster/..." %><p>Le lien doit venir de vodkaster</p>
+  
+  <%= f.submit "Gueux ! Une nouvelle quète !" %> 
+<% end %>

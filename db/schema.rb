@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204192945) do
+ActiveRecord::Schema.define(version: 20141205101721) do
+
+  create_table "posts", force: true do |t|
+    t.string   "url_img"
+    t.string   "url_film"
+    t.integer  "user_id"
+    t.boolean  "found",      default: false, null: false
+    t.boolean  "hardlevel",  default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "film_name"
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "rushes", force: true do |t|
     t.date     "date_d"

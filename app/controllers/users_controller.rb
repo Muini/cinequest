@@ -9,8 +9,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       flash[:success] = "Vous vous êtes bien inscrit !"
-      redirect_to "../index"
+      redirect_to :root
     else
       render :new
     end
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
     @user = User.find_by(pseudo: params[:pseudo])
     if @user.nil?
       flash[:alert] = "Cet utilisateur n'existe pas !"
-      redirect_to "/index"
+      redirect_to :root
     end
   end
 
