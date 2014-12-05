@@ -19,9 +19,12 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   get    'logout'  => 'sessions#destroy'
 
-  get    'newquest'   => 'posts#new'
-  post   'newquest'   => 'posts#create'
-  resources :posts, only: [:new, :create]
+  get    'newquete'   => 'posts#new'
+  post   'newquete'   => 'posts#create'
+  get    'quetes/:id'   => 'posts#show'
+  resources :posts, only: [:new, :create, :destroy]
+    
+  resources :comments, only: [:create, :destroy]
     
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message: MyText
+  id_user_id: 
+  id_post_id: 
+  valid: false
+
+two:
+  message: MyText
+  id_user_id: 
+  id_post_id: 
+  valid: false

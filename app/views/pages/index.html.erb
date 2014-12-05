@@ -1,7 +1,7 @@
 <h1>CineQuest</h1>
 <h2>A la quête d'un nom de film</h2>
 <p>Flux CineQuest</p>
-<a href="/newquest">Nouvelle Quest</a><br/>
+<a href="/newquete">Nouvelle Quest</a><br/>
 <a href="/logout">Logout</a><br/>
 <ul>
 <% @posts.each do |post| %>
@@ -11,6 +11,10 @@
     <% if post.found %>
       <a href=<%= post.url_film %> target="_blank" ><h3><%= post.film_name %></h3></a>
     <% end %>
+    <h4>Add a comment:</h4>
+    <div id="comment-form">
+      <%= render 'comments/form' %>
+    </div>
   </li>
 <% end %>
 </ul>
