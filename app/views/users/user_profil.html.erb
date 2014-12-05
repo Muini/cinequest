@@ -5,3 +5,12 @@
 <p>Crédit(s) : <%= @user.credits %></p>
 
 <p>Gold Crédit(s) : <%= @user.r_credits %></p>
+
+<h4>Quètes proposées</h4>
+<ul>
+  <% @user.posts.each do |post| %>
+    <li>
+      <p><%= post.url_img %></p>
+    </li>
+  <% end %>
+</ul>
