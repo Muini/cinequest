@@ -1,0 +1,11 @@
+<%= div_for comment do %>
+  <h4 class="comment-author"><%= sanitize(comment.user.pseudo) %></h4>
+  <span class="date"><small><%= time_ago_in_words(comment.created_at) %> ago</small></span>
+
+  <p class="comment-content"><%= sanitize(comment.message) %></p>
+
+  <% if logged_in? %>
+      <%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete, remote: true %>
+  <% end %>
+  <hr />
+<% end %>

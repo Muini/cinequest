@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 # Users listing
   def users_list
     # @users_pseudo = User.all.map{|x| x.pseudo} 
-    @users = User.order("credits DESC").all
+    @users = User.all
   end
     
 # Profil par pseudo :D

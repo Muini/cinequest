@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   get    'quetes/:id'   => 'posts#show'
   resources :posts, only: [:new, :create, :destroy]
     
-  resources :comments, only: [:create, :destroy]
+  resources :posts do
+    resources :comments, :only => [:new, :create, :destroy]
+  end
     
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,15 +1,17 @@
-<h1>Quest n°<%= @post.id %></h1>
+<h1>Quete n°<%= @post.id %></h1>
+
 <img src="<% @post.url_img %>" alt />
+
 <% if @post.found %>
   <a href=<%= @post.url_film %> target="_blank" ><h3><%= @post.film_name %></h3></a>
 <% end %>
-<div id="comment-form">
-  <%= render 'comments/form' %>
-</div>
-<ul>
-<%= @post.comments.each do |comment| %>
-  <li>
-    <p><%= comment.message %></p>
-  </li>
+
+<% unless @post.found.nil? %>
+  <div id="comment-form">
+    <%= render 'comments/comment_form' %>
+  </div>
 <% end %>
-</ul>
+
+<div id="comments-list">
+  <%= render partial: @post.reload.comments %>
+</div>

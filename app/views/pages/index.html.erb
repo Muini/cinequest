@@ -1,19 +1,19 @@
 <h1>CineQuest</h1>
 <h2>A la quête d'un nom de film</h2>
 <p>Flux CineQuest</p>
-<a href="/newquete">Nouvelle Quest</a><br/>
-<a href="/logout">Logout</a><br/>
+<a href="/aventuriers/<%= current_user.pseudo %>">Mon Profil</a><br/>
+<a href="/newquete">Nouvelle quète</a><br/>
+<a href="/logout">Je pars !</a><br/>
 <ul>
 <% @posts.each do |post| %>
   <li>
+    <p>Proposé par : <%= sanitize(post.user.pseudo) %></p>
     <img src=<%= post.url_img %> alt="L'image de la quète" />
-    <p>Proposé par : <%= post.user.pseudo %></p>
     <% if post.found %>
-      <a href=<%= post.url_film %> target="_blank" ><h3><%= post.film_name %></h3></a>
+      <a href=<%= post.url_film %> target="_blank" ><h3><%= sanitize(post.film_name) %></h3></a>
     <% end %>
-    <h4>Add a comment:</h4>
-    <div id="comment-form">
-      <%= render 'comments/form' %>
+    <div id="comments-list">
+      <%= render partial: post.reload.comments %>
     </div>
   </li>
 <% end %>
