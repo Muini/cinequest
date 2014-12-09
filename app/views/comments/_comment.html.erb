@@ -7,6 +7,10 @@
 
   <p class="comment-message"><%= sanitize(comment.message) %></p>
 
+  <% if comment.correct %>
+    <p style="color:green;">Ce commentaire est la bonne réponse !</p>
+  <% end %>
+
   <% if logged_in? && current_user.id == comment.post.user.id && !comment.post.found && !comment.post.closed %>
     <%= link_to 'Bonne réponse !', post_validate_comment_path(comment.post, comment), method: :get, remote: true, class: "comment-validate" %>
   <% end %>
