@@ -1,6 +1,7 @@
 <h1>Quete n°<%= @post.id %></h1>
 
 <p>Proposé par <%= link_to post.user.pseudo, user_url(post.user.pseudo) %></p>
+<!--<span class="post-date"><small><%= time_ago_in_words(post.created_at) %></small></span>-->
 
 <img src=<%= @post.url_img %> alt />
 
@@ -9,7 +10,7 @@
 <% end %>
 
 <% if logged_in? %>
-  <% unless @post.found || current_user.id == @post.user.id  %>
+  <% unless @post.found || current_user.id == @post.user.id || @post.closed %>
     <div id="comment-form">
       <%= render 'comments/comment_form' %>
     </div>

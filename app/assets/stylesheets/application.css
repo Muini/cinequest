@@ -21,3 +21,19 @@
     float: left;
     margin: 20px;
 }
+
+header{
+
+}
+
+#quete_unique{
+    width: 100%;
+    text-align: center;
+}
+
+#liste_quetes{
+    max-width:360px;
+    min-width:320px;
+    float: left;
+    overflow: hidden;
+}

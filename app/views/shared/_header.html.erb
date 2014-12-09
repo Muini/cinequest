@@ -1,0 +1,15 @@
+<header>
+  <h1><%= link_to "CineQuest", :root %></h1>
+  <h2>A la quête d'un nom de film</h2>
+  <% if logged_in? %>
+    <%= link_to "Mon profil", user_url(current_user.pseudo) %><br/>
+  <% else %>
+    <%= link_to "Inscrivez-vous", :signin %><br/>
+  <% end %>
+  <%= link_to "Nouvelle quète !", new_post_path %><br/>
+  <% if logged_in? %>
+    <%= link_to "Je pars", :logout %><br/>
+  <% else %>
+    <%= link_to "Login", :login %><br/>
+  <% end %>
+</header>

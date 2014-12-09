@@ -3,14 +3,14 @@
   <img class="comment-img" src=<%= comment.user.url_img %> alt />
   <%= link_to comment.user.pseudo, user_path(comment.user.pseudo), class: "comment-pseudo" %>
 
-  <span class="comment-date"><small><%= time_ago_in_words(comment.created_at) %> ago</small></span>
+  <span class="comment-date"><small><%= time_ago_in_words(comment.created_at) %></small></span>
 
   <p class="comment-message"><%= sanitize(comment.message) %></p>
 
-  <% if logged_in? && current_user.id == comment.post.id && !comment.post.found %>
+  <% if logged_in? && current_user.id == comment.post.user.id && !comment.post.found && !comment.post.closed %>
     <%= link_to 'Bonne réponse !', post_validate_comment_path(comment.post, comment), method: :get, remote: true, class: "comment-validate" %>
   <% end %>
-  <% if logged_in? && current_user.id == comment.user.id && !comment.post.found %>
+  <% if logged_in? && current_user.id == comment.user.id && !comment.post.found && !comment.post.closed %>
     <%= link_to 'Supprimer', post_comment_path(comment.post, comment), method: :delete, remote: true, class: "comment-delete" %>
   <% end %>
   <hr />

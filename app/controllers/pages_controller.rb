@@ -9,8 +9,6 @@ class PagesController < ApplicationController
 #    unless logged_in?
 #      redirect_to :home
 #    end
-    @posts = Post.all
-    @post = Post.new
-    @new_comment = @post.comments.new
+    @posts = Post.all.where(closed: false) #Not all post, all not closed post
   end
 end

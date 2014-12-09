@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205192132) do
+ActiveRecord::Schema.define(version: 20141209143856) do
 
   create_table "comments", force: true do |t|
     t.text     "message"
     t.integer  "user_id"
     t.integer  "post_id"
-    t.boolean  "closed"
+    t.boolean  "correct"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,10 +30,11 @@ ActiveRecord::Schema.define(version: 20141205192132) do
     t.string   "url_film"
     t.integer  "user_id"
     t.boolean  "found",      default: false, null: false
-    t.boolean  "hardlevel",  default: false, null: false
+    t.integer  "difficulty", default: 0,     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "film_name"
+    t.boolean  "closed",     default: false
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"

@@ -22,9 +22,13 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @new_comment = @post.comments.new
     
-    respond_to do |format|
-      format.html { render @post }
-      format.js
+    if request.xhr?
+      respond_to do |format|
+        format.html { render @post }
+        format.js
+      end
+    else
+      redirect_to :root
     end
   end
     

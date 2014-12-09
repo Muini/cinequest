@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 # Commentaires
 
   def new
-    @comment = Comment.new 
+    @new_comment = Comment.new 
   end
     
   def create
@@ -42,16 +42,26 @@ class CommentsController < ApplicationController
   def validate_comment
     @comment = Comment.find(params[:id])
     @post = @comment.post
-    @post.update_attribute(:found, true)
-    @comment.update_attribute(:closed, true)
-    credits = @comment.user.credits + 1
-    @comment.user.update_attribute(:credits, credits)
-    respond_to do |format|
-      format.html do
-        flash[:success] = 'Participation validée !'
-        redirect_to @post
+    # validate again the post owner
+    # just security
+    if current_user.id == @post.user.id
+      # Validate the participation & notify the post/quest
+      @post.update_attribute(:found, true)
+      @comment.update_attribute(:correct, true)
+      # Yeah, give a credit to the winner
+      credits = @comment.user.credits + 1
+      @comment.user.update_attribute(:credits, credits)
+      respond_to do |format|
+        format.html do
+          flash[:success] = 'Participation validée !'
+          redirect_to @post
+        end
+        format.js
       end
-      format.js
+    else
+      respond_to do |format|
+        redirect_to :root
+      end
     end
   end
 

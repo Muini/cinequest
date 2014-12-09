@@ -1,30 +1,24 @@
-<h1>CineQuest</h1>
-<h2>A la quête d'un nom de film</h2>
-<p>Flux CineQuest</p>
-<% if logged_in? %>
-  <%= link_to "Mon profil", user_url(current_user.pseudo) %><br/>
-<% else %>
-  <%= link_to "Inscrivez-vous", :signin %><br/>
-<% end %>
-<%= link_to "Nouvelle quète !", new_post_path %><br/>
-<% if logged_in? %>
-  <%= link_to "Je pars", :logout %><br/>
-<% else %>
-  <%= link_to "Login", :login %><br/>
-<% end %>
-<ul>
-<% @posts.each do |post| %>
-  <li>
-    <p>Proposé par : <%= link_to post.user.pseudo, user_url(post.user.pseudo) %></p>
-    <%= link_to post, remote: true  do %>
-      <img src=<%= post.url_img %> alt="L'image de la quète" />
-      <% if post.found %>
-        <a href=<%= post.url_film %> target="_blank" ><h3><%= sanitize(post.film_name) %></h3></a>
-      <% end %>
-    <% end %>
-  </li>
-<% end %>
-</ul>
-<div id="post_unique">
+<section id="main_flux">
 
-</div>
+  <div id="liste_quetes">
+      <ul>
+          <% @posts.each do |post| %>
+            <li>
+              <p>Proposé par : <%= link_to post.user.pseudo, user_url(post.user.pseudo) %></p>
+              <span class="post-date"><small><%= time_ago_in_words(post.created_at) %></small></span>
+              <%= link_to post, remote: true  do %>
+                <img src=<%= post.url_img %> alt="L'image de la quète" />
+                <% if post.found %>
+                  <a href=<%= post.url_film %> target="_blank" ><h3><%= sanitize(post.film_name) %></h3></a>
+                <% end %>
+              <% end %>
+            </li>
+          <% end %>
+      </ul>
+  </div>
+  
+  <div id="quete_unique">
+
+  </div>
+
+</section>
