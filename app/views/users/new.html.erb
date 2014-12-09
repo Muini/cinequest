@@ -1,22 +1,12 @@
 <h1>Inscription</h1>
 <p>Inscrivez vous sur CineQuest</p>
 
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger">
-      The form contains <%= pluralize(@user.errors.count, "error") %>.
-    </div>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <%= form_for @user do |f| %> 
+ 
+  <%= render 'shared/error_messages', object: f.object %>
+ 
   <%= f.label "Pseudo" %>:    
-  <%= f.text_field :pseudo, placeholder:"xXxD4rKxXx" %><p>30 caractères max</p><br/>
+  <%= f.text_field :pseudo, placeholder:"xXxD4rKxXx" %><p>3 à 30 caractères</p><br/>
 
   <%= f.label "Nom" %>:    
   <%= f.text_field :nom, placeholder:"John" %>
@@ -27,7 +17,7 @@
   <%= f.text_field :email, placeholder:"hi@cinequest.fr"  %><br/>
   
   <%= f.label "Mot de passe" %>:
-  <%= f.password_field :password %><p>20 caractères max</p><br/>
+  <%= f.password_field :password %><p>6 à 25 caractères</p><br/>
   <!-- img avec ajax check de l'url pour l'afficher -->
   <%= f.label "URL de l'image de profil" %>:    
   <%= f.text_field :url_img, placeholder:"http://img.jpg" %><br/> 

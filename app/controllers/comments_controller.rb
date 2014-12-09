@@ -32,10 +32,26 @@ class CommentsController < ApplicationController
     @comment.destroy
     respond_to do |format|
       format.html do
-        flash[:success] = 'Participation supprimé.'
+        flash[:success] = 'Participation supprimée.'
         redirect_to @post
       end
       format.js # JavaScript response
+    end
+  end
+
+  def validate_comment
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
+    @post.update_attribute(:found, true)
+    @comment.update_attribute(:closed, true)
+    credits = @comment.user.credits + 1
+    @comment.user.update_attribute(:credits, credits)
+    respond_to do |format|
+      format.html do
+        flash[:success] = 'Participation validée !'
+        redirect_to @post
+      end
+      format.js
     end
   end
 

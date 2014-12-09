@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [ :new, :create, :users_list ]
+  skip_before_action :require_login, only: [ :new, :create, :user_profil ]
 
 # Account creation
   def new
@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       flash[:alert] = "Cet utilisateur n'existe pas !"
       redirect_to :root
     end
+    @nbr_comment = @user.comments.count
   end
 
 # Private

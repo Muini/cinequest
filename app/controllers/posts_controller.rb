@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-
+#  scope :found, -> { where(found: true) } # chained function to draw founded posts
+    
 # Quète creation
   def new
     @post = Post.new

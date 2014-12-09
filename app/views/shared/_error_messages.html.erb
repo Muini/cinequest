@@ -1,8 +1,12 @@
 <% if object.errors.any? %>
-  <p>This form has <%= pluralize(object.errors.count, 'problème') %></p>
-  <ul>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      Damn ! Le formulaire contient <%= pluralize(object.errors.count, "erreur") %>.
+    </div>
+    <ul>
     <% object.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
-  </ul>
+    </ul>
+  </div>
 <% end %>

@@ -6,9 +6,9 @@ class PagesController < ApplicationController
   end
     
   def index
-    unless logged_in?
-      redirect_to :home
-    end
+#    unless logged_in?
+#      redirect_to :home
+#    end
     @posts = Post.all
   end
 end

@@ -1,19 +1,9 @@
 <h1>Création d'une quète</h1>
 
-<% if @post.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger">
-      The form contains <%= pluralize(@post.errors.count, "error") %>.
-    </div>
-    <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <%= form_for @post do |f| %>
+ 
+  <%= render 'shared/error_messages', object: f.object %>
+ 
   <!-- img avec ajax check de l'url pour l'afficher --> 
   <%= f.label "URL de l'image" %>:    
   <%= f.text_field :url_img, placeholder:"http://..." %><br/>
