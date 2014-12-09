@@ -10,5 +10,7 @@ class PagesController < ApplicationController
 #      redirect_to :home
 #    end
     @posts = Post.all
+    @post = Post.new
+    @new_comment = @post.comments.new
   end
 end

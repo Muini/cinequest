@@ -8,9 +8,9 @@ class CommentsController < ApplicationController
     
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(comment_params)
-    @comment[:user_id] = current_user.id
-    if @comment.save
+    @new_comment = @post.comments.create(comment_params)
+    @new_comment[:user_id] = current_user.id
+    if @new_comment.save
       respond_to do |format|
         format.html do
           flash[:success] = 'Your comment has been posted.'

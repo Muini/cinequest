@@ -6,7 +6,7 @@
 <% else %>
   <%= link_to "Inscrivez-vous", :signin %><br/>
 <% end %>
-<a href="/newquete">Nouvelle quète</a><br/>
+<%= link_to "Nouvelle quète !", new_post_path %><br/>
 <% if logged_in? %>
   <%= link_to "Je pars", :logout %><br/>
 <% else %>
@@ -16,7 +16,7 @@
 <% @posts.each do |post| %>
   <li>
     <p>Proposé par : <%= link_to post.user.pseudo, user_url(post.user.pseudo) %></p>
-    <%= link_to(post) do %>
+    <%= link_to post, remote: true  do %>
       <img src=<%= post.url_img %> alt="L'image de la quète" />
       <% if post.found %>
         <a href=<%= post.url_film %> target="_blank" ><h3><%= sanitize(post.film_name) %></h3></a>
@@ -25,3 +25,6 @@
   </li>
 <% end %>
 </ul>
+<div id="post_unique">
+
+</div>

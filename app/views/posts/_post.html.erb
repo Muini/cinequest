@@ -1,15 +1,19 @@
 <h1>Quete n°<%= @post.id %></h1>
 
+<p>Proposé par <%= link_to post.user.pseudo, user_url(post.user.pseudo) %></p>
+
 <img src=<%= @post.url_img %> alt />
 
 <% if @post.found %>
   <a href=<%= @post.url_film %> target="_blank" ><h3><%= @post.film_name %></h3></a>
 <% end %>
 
-<% unless @post.found || current_user.id == @post.user.id  %>
-  <div id="comment-form">
-    <%= render 'comments/comment_form' %>
-  </div>
+<% if logged_in? %>
+  <% unless @post.found || current_user.id == @post.user.id  %>
+    <div id="comment-form">
+      <%= render 'comments/comment_form' %>
+    </div>
+  <% end %>
 <% end %>
 
 <div id="comments-list">

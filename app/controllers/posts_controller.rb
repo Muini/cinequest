@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 #  scope :found, -> { where(found: true) } # chained function to draw founded posts
+  skip_before_action :require_login, only: [ :show ]
     
 # Quète creation
   def new
@@ -19,7 +20,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comment = @post.comments.new
+    @new_comment = @post.comments.new
+    
+    respond_to do |format|
+      format.html { render @post }
+      format.js
+    end
   end
     
 # Private
