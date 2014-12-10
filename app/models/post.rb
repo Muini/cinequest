@@ -7,4 +7,11 @@ class Post < ActiveRecord::Base
   validates :film_name, presence: true
 
   default_scope -> { order('created_at DESC') }
+    
+  def day_end
+    render.js{"alert('Yolo');"}
+    puts "=============="
+    puts "END OF THE DAY"
+    puts "=============="
+  end
 end

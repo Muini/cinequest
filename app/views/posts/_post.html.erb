@@ -3,7 +3,7 @@
 <p>Proposé par <%= link_to post.user.pseudo, user_url(post.user.pseudo) %></p>
 <!--<span class="post-date"><small><%= time_ago_in_words(post.created_at) %></small></span>-->
 
-<img src=<%= @post.url_img %> alt />
+<%= image_tag @post.url_img, alt: "Pouet pouet" %>
 
 <% if @post.found %>
   <h3 style="color:green;">Cette image à trouvé son film :</h3>
