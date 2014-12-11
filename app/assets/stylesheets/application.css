@@ -209,7 +209,7 @@ a{
 #quests_list{
     margin: 0 auto;
     width: 360px;
-    height: 100%;
+    height: calc(100vh - 75px);
     border-left: 1px solid #ebebeb;
     border-right: 1px solid #ebebeb;
     background-color: #ffffff;
