@@ -1,21 +1,23 @@
-<%= div_for comment do %>
-  <p class="comment-id">#<%= comment.id %></p>
-  <img class="comment-img" src=<%= comment.user.url_img %> alt />
-  <%= link_to comment.user.pseudo, user_path(comment.user.pseudo), class: "comment-pseudo" %>
+<%= div_for comment, class: (comment.correct ? 'comment_good_answer' : '') do %>
+  
+    <div class="comment_img">
+      <%= image_tag sanitize(comment.user.url_img), alt: "Photo de profil", class: "comment-img" %>
+    </div>
+    <div class="comment_content">
+      <p class="comment-message"><%= sanitize(comment.message) %></p>
+      <p class="comment_infos"><%= time_ago_in_words(comment.created_at) %> par <%= link_to sanitize(comment.user.pseudo), user_url(comment.user.pseudo) %></p>
+    </div>
 
-  <span class="comment-date"><small><%= time_ago_in_words(comment.created_at) %></small></span>
+    <% if comment.correct %>
+        <p class="comment_points_won"><%= sanitize(comment.user.pseudo)+" remporte "+comment.post.difficulty.to_i+1 %> crédits !</p>
+    <% end %>
 
-  <p class="comment-message"><%= sanitize(comment.message) %></p>
+    <% if logged_in? && current_user.id == comment.post.user.id && !comment.post.found && !comment.post.closed %>
+        <%= link_to 'Bonne réponse !', post_validate_comment_path(comment.post, comment), method: :get, remote: true, class: "comment_validate" %>
+    <% end %>
+    
+    <% if logged_in? && current_user.id == comment.user.id && !comment.post.found && !comment.post.closed %>
+        <%= link_to 'Supprimer', post_comment_path(comment.post, comment), method: :delete, remote: true, class: "comment_delete" %>
+    <% end %>
 
-  <% if comment.correct %>
-    <p style="color:green;">Bonne réponse ! <%= comment.post.difficulty.to_i+1 %> points gagnés !</p>
-  <% end %>
-
-  <% if logged_in? && current_user.id == comment.post.user.id && !comment.post.found && !comment.post.closed %>
-    <%= link_to 'Bonne réponse !', post_validate_comment_path(comment.post, comment), method: :get, remote: true, class: "comment-validate" %>
-  <% end %>
-  <% if logged_in? && current_user.id == comment.user.id && !comment.post.found && !comment.post.closed %>
-    <%= link_to 'Supprimer', post_comment_path(comment.post, comment), method: :delete, remote: true, class: "comment-delete" %>
-  <% end %>
-  <hr />
 <% end %>
