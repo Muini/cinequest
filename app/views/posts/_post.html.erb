@@ -14,7 +14,7 @@
     
     <% if logged_in? %>
         <% unless @post.found || current_user.id == @post.user.id || @post.closed %>
-            <section class="q_answer">
+            <section id="comment_form" class="q_answer">
                 <%= render 'comments/comment_form' %>
             </section>
         <% end %>
