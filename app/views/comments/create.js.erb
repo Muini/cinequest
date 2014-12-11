@@ -1,4 +1,4 @@
-var comments_list = $('#comments-list');
+var comments_list = $('#comments_list');
 comments_list.append('<%= escape_javascript(render partial: @new_comment) %>');
 //comments_list.find('div:last-child').addClass('last-comment');
 $('#comment-form').html('<%= escape_javascript(render('comments/comment_form')) %>');
