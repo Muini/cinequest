@@ -36,7 +36,7 @@ class PostsController < ApplicationController
   private
     
   def post_params
-    params.require(:post).permit(:url_img,:url_film,:hardlevel,:film_name)
+    params.require(:post).permit(:url_img,:url_film,:difficulty,:film_name,:clue)
   end
 
 end

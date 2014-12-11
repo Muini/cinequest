@@ -49,7 +49,7 @@ class CommentsController < ApplicationController
       @post.update_attribute(:found, true)
       @comment.update_attribute(:correct, true)
       # Yeah, give a credit to the winner
-      credits = @comment.user.credits + 1
+      credits = @comment.user.credits.to_i + 1 + @comment.post.difficulty.to_i
       @comment.user.update_attribute(:credits, credits)
       respond_to do |format|
         format.html do

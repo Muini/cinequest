@@ -8,13 +8,22 @@
   <%= f.label "URL de l'image" %>:    
   <%= f.text_field :url_img, placeholder:"http://..." %><br/><p>L'image doit être au format .jpg ou .png</p>
   
+  <%= f.label "Difficulté" %>
+  <%= f.radio_button :difficulty, "0", checked: true %>Facile
+  <%= f.radio_button :difficulty, "1" %>Moyen
+  <%= f.radio_button :difficulty, "2" %>Difficile
+  <br/><br/>
+  
+  <%= f.label "Indice(s)" %><small>( Seulement en facile )</small><br/>
+  <%= f.text_area :clue, placeholder:"Le film est sortie en -130 A.C" %><br/>
+
   <p>Les champs suivants seront affichés lorsque la quète sera close</p>
 
   <%= f.label "Titre du film" %>:    
   <%= f.text_field :film_name, placeholder:"Kill Boule vol4 episode 7 partie 1" %><br/>
 
   <%= f.label "URL de la fiche film" %>:    
-  <%= f.text_field :url_film, placeholder:"http://vodkaster.com/..." %><p>Le lien doit venir de vodkaster</p>
+  <%= f.text_field :url_film, placeholder:"http://vodkaster.com/films/..." %><p>Le lien doit venir de vodkaster</p>
   
   <%= f.submit "Gueux ! Une nouvelle quète !" %> 
 <% end %>

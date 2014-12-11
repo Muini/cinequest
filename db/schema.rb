@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209143856) do
+ActiveRecord::Schema.define(version: 20141211085739) do
 
   create_table "comments", force: true do |t|
     t.text     "message"
@@ -35,9 +35,18 @@ ActiveRecord::Schema.define(version: 20141209143856) do
     t.datetime "updated_at"
     t.string   "film_name"
     t.boolean  "closed",     default: false
+    t.text     "clue"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "rushes", force: true do |t|
+    t.date     "date_d"
+    t.date     "date_f"
+    t.boolean  "special",    default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "pseudo"
