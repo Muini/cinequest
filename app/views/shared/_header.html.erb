@@ -1,15 +1,16 @@
-<header>
+<header id="main_header">
   <h1><%= link_to "CineQuest", :root %></h1>
-  <h2>A la quête d'un nom de film</h2>
+<!--  <h2>A la quête d'un nom de film</h2>-->
+  <h2>Prenez part à l'épique bataille des noms de films</h2>
   <% if logged_in? %>
-    <%= link_to "Mon profil", user_url(current_user.pseudo) %><br/>
+    <% photo_profil = image_tag current_user.url_img, alt: "Photo de profil" %>
+    <%= link_to photo_profil, user_url(current_user.pseudo), class: "header_profil_img" %>
   <% else %>
-    <%= link_to "Inscrivez-vous", :signin %><br/>
+    <%= link_to "Inscrivez-vous", :signin, class: "header_signin" %>
   <% end %>
-  <%= link_to "Nouvelle quète !", new_post_path %><br/>
   <% if logged_in? %>
-    <%= link_to "Je pars", :logout %><br/>
+    <%= link_to "Je pars", :logout, class: "header_logout" %>
   <% else %>
-    <%= link_to "Login", :login %><br/>
+    <%= link_to "Login", :login, class: "header_login" %>
   <% end %>
 </header>
