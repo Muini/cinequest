@@ -8,14 +8,14 @@
           <%= link_to post, remote: true  do %>
            
             <% if post.found %>
-              <p class="ql_found">Trouvée</p>
+              <p class="ql_found uppercase_font white">trouvée</p>
             <% end %>
             <div class="ql_img min_quest_picture">
               <%= image_tag post.url_img, alt: "Vignette de la quète" %>
             </div>
             <div class="ql_content">
-              <h1>Quête <span class="ql_nbr">#<%= post.id %></span></h1>
-              <p class="ql_infos"><%= time_ago_in_words(post.created_at) %> par <%= sanitize(post.user.pseudo) %></p>
+              <h1 class="uppercase_font blue">quête <span class="ql_nbr red">#<%= post.id %></span></h1>
+              <p class="ql_infos lowercase_light_font blue"><%= time_ago_in_words(post.created_at) %> par <%= sanitize(post.user.pseudo) %></p>
             </div>
             
           <% end %>
@@ -23,7 +23,7 @@
         </li>
       <% end %>
       </ul>
-      <%= link_to "Nouvelle quète !", new_post_path %>
+      <%= link_to "nouvelle quète", new_post_path, class:"blue uppercase_font" %>
   </div>
   
   <div id="quest">
