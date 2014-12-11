@@ -1,25 +1,33 @@
 <section id="main">
 
-  <div id="liste_quetes">
-      <ul>
-          <% @posts.each do |post| %>
-            <li>
-              <p>Proposé par : <%= link_to post.user.pseudo, user_url(post.user.pseudo) %></p>
-              <span class="post-date"><small><%= time_ago_in_words(post.created_at) %></small></span>
-              <%= link_to post, remote: true  do %>
-                <img src=<%= post.url_img %> alt="L'image de la quète" />
-                <% if post.found %>
-                  <p style="color:green;">Trouvé !</p>
-                <% end %>
-              <% end %>
-            </li>
+  <div id="quests">
+      <ul id="quests_list">
+      <% @posts.each do |post| %>
+        <li>
+          
+          <%= link_to post, remote: true  do %>
+           
+            <% if post.found %>
+              <p class="ql_found">Trouvée</p>
+            <% end %>
+            <div class="ql_img">
+              <%= image_tag post.url_img, alt: "Vignette de la quète" %>
+            </div>
+            <div class="ql_content">
+              <h1>Quête <span class="ql_nbr">#<%= post.id %></span></h1>
+              <p class="ql_infos"><%= time_ago_in_words(post.created_at) %> par <%= link_to post.user.pseudo, user_url(post.user.pseudo) %></p>
+            </div>
+            
           <% end %>
+
+        </li>
+      <% end %>
       </ul>
       <%= link_to "Nouvelle quète !", new_post_path %>
   </div>
   
-  <div id="quete_unique">
-
+  <div id="quest">
+    
   </div>
 
 </section>
