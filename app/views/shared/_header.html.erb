@@ -1,9 +1,13 @@
 <header id="main_header">
-  <h1><%= link_to "CineQuest", :root %></h1>
-  <h2>Prenez part à l'épique bataille des noms de films</h2>
+  <h1>
+      <%= link_to :root do %>
+        <%= image_tag "logo.png", alt: "CineQuest" %>
+      <% end %>
+  </h1>
+  <h2 class="lowercase_light_font white">Prenez part à l'épique bataille des noms de films</h2>
   <% if logged_in? %>
     <%= link_to user_url(current_user.pseudo), class: "header_profil_img" do %>
-      <%= image_tag current_user.url_img, alt: "Photo de profil" %>
+      <%= image_tag current_user.url_img, class:"min_profile_picture", alt: "Photo de profil" %>
     <% end %>
   <% else %>
     <%= link_to "Inscrivez-vous", :signin, class: "header_signin" %>
