@@ -1,51 +1,184 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
  *= require_tree .
  *= require_self
  */
-img{
-    display:block;
-    width: 50%;
+  
+@font-face {
+    font-family: 'novecento_m';
+    src: url('fonts/novecento_m.eot');
+    src: url('fonts/novecento_m.eot?#iefix') format('embedded-opentype'),
+         url('fonts/novecento_m.woff2') format('woff2'),url('fonts/novecento_m.woff') format('woff'),
+         url('fonts/novecento_m.ttf') format('truetype');
 }
-.comment-img{
+
+@font-face {
+    font-family: 'roboto_l';
+    src: url('fonts/roboto_l.ttf');
+}
+
+@font-face {
+    font-family: 'roboto_r';
+    src: url('fonts/roboto_r.ttf');
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    box-sizing : border-box;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-size : 62.5%;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+    background-color : #f0f0f0 ;
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* CLASSES RÉUTILISABLES */
+
+.uppercase_font{
+    font-family: novecento_m;
+    font-size: 1.2rem; 
+    letter-spacing: 0.1rem;  
+}
+
+.lowercase_regular_font{
+    font-family: roboto_r;
+    font-size: 1.2rem; 
+    letter-spacing: 0.1rem;  
+}
+
+.lowercase_light_font{
+    font-family: roboto_l;
+    font-size: 1rem; 
+    letter-spacing: 0.1rem;  
+}
+
+.action_btn{
+    border: 1px solid;
+    padding: 0 10px 0 10px;
+}
+
+.blue{
+    color: #142b51; /* Text colors */
+}
+
+.red{
+    color: #bf2e26; /* Text colors */
+}
+
+.white{
+    color: #fafafa; /* Text colors */
+}
+
+min_profile_picture{
+    width: 25px;
+    height: 25px;
+    border-radius : 50%;
+}
+
+min_quest_picture{
+    width: 25px;
+    height: 25px;
+    border-radius : 4px;
+}
+
+find_label{
     width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    float: left;
-    margin: 20px;
-}
-
-header{
-
-}
-
-#quete_unique{
-    width: 100%;
+    height: 10px;
     text-align: center;
-}
-#quete_unique>img{
-    margin: 0 auto;   
+    background-color: #7d7d7d;
+    font-size: 0.7rem;
+    -webkit-transform: rotate(315deg);
+        -ms-transform: rotate(315deg);
+            transform: rotate(315deg);
+    /* Add top and left AND do not forget relative pisitioning on parent */
+    position: absolute; 
 }
 
-#liste_quetes{
-    max-width:360px;
-    min-width:320px;
-    float: left;
-    overflow: hidden;
+.form_style{
+    background-color: #fafafa;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    min-height: 25px;
 }
-#comments-list{
-    width: 60%;
-    margin: 0 auto;
-    display: block;
+
+.radio_style{
+    background-color: #fafafa;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    height: 25px;
+    width: 25px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
