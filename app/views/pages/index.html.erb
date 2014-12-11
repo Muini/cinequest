@@ -15,7 +15,7 @@
             </div>
             <div class="ql_content">
               <h1>Quête <span class="ql_nbr">#<%= post.id %></span></h1>
-              <p class="ql_infos"><%= time_ago_in_words(post.created_at) %> par <%= link_to post.user.pseudo, user_url(post.user.pseudo) %></p>
+              <p class="ql_infos"><%= time_ago_in_words(post.created_at) %> par <%= sanitize(post.user.pseudo) %></p>
             </div>
             
           <% end %>
