@@ -1,32 +1,39 @@
-<h1>Quete n°<%= @post.id %></h1>
+<section class="a_quest">
+    <header class="q_img_content">
+       <div class="q_img_wrapper">
+           <%= image_tag sanitize(@post.url_img), alt: "La capture du film" %>
+       </div>
+       <div class="q_img_overlay">
+           <h1>#<%= @post.id %></h1>
+           <p class="q_difficulty">
+                Difficulté
+                <span class="q_difficulty_<%= @post.difficulty %>" ></span>
+           </p>
+       </div>
+    </header>
+    
+    <% if logged_in? %>
+        <% unless @post.found || current_user.id == @post.user.id || @post.closed %>
+            <section class="q_answer">
+                <%= render 'comments/comment_form' %>
+            </section>
+        <% end %>
+    <% end %>
+    
+    <% if @post.difficulty == 0 %>
+        <section class="q_clue">
+            <p><%= sanitize(@post.clue) %></p>
+        </section>
+    <% end %>
+    
+    <% if @post.found %>
+        <section class="q_title">
+            <h1><%= sanitize(@post.film_name) %></h1>
+            <a href=<%= sanitize(@post.url_film) %> target="_blank" class="q_film_link_label" ></a>
+        </section>
+    <% end %>
 
-<p>Proposé par <%= link_to post.user.pseudo, user_url(post.user.pseudo) %></p>
-
-<%= image_tag @post.url_img, alt: "La capture du film" %>
-
-<% if @post.found %>
-  <h3 style="color:green;">Cette image à trouvé son film :</h3>
-  <a href=<%= @post.url_film %> target="_blank" ><h3><%= sanitize(@post.film_name) %></h3></a>
-<% end %>
-
-<p>Difficulté : 
-  <%= 'Facile' if @post.difficulty == 0 %>
-  <%= 'Moyen' if @post.difficulty == 1 %>
-  <%= 'Difficile' if @post.difficulty == 2 %>
-</p>
-
-<% if @post.difficulty == 0 && !@post.clue.nil? %>
-  <p>Indice(s) : <%= sanitize(@post.clue) %></p>
-<% end %>
-
-<% if logged_in? %>
-  <% unless @post.found || current_user.id == @post.user.id || @post.closed %>
-    <div id="comment-form">
-      <%= render 'comments/comment_form' %>
-    </div>
-  <% end %>
-<% end %>
-
-<div id="comments-list">
-  <%= render partial: @post.reload.comments %>
-</div>
+    <footer id="comments_list">
+      <%= render partial: @post.reload.comments %>
+    </footer>
+</section>
