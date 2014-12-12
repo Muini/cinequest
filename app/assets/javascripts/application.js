@@ -116,3 +116,17 @@ if(signin_form)
         $('#user_img_preview').attr('src',inputVal);
     });
 }
+
+//
+$('#quests_list li a').on('click',function(){
+    if( $(this).hasClass('ql_active') )
+    {
+        return false;
+    }else{
+        $('#quests_list li a').removeClass('ql_active');
+        $(this).addClass('ql_active');
+//        $('.a_quest').fadeOut(500);  
+    }
+
+
+});
