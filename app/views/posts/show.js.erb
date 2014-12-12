@@ -1,2 +1,8 @@
 //Afficher le post dans la bonne colonne
 $('#quest').html('<%= escape_javascript(render partial: @post) %>');
+
+$(".a_quest").mCustomScrollbar({
+    axis:"y",
+    theme:"minimal-dark",
+    scrollInertia:500
+});

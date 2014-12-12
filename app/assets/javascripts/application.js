@@ -15,10 +15,11 @@
 //= require turbolinks
 //= require_tree .
 
-//NanoScroll Init
-$("#quests,#quest").mCustomScrollbar({
+//Custom Scroll Init
+$("#quests>ul").mCustomScrollbar({
     axis:"y",
-    theme:"minimal-dark"
+    theme:"minimal-dark",
+    scrollInertia:500
 });
 
 // New Quest Check Form
