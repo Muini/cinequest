@@ -15,6 +15,9 @@
 //= require turbolinks
 //= require_tree .
 
+//NanoScroll Init
+$("#quest,#quests").nanoScroller();
+
 // New Quest Check Form
 var new_quest_form = $('new_post');
 
