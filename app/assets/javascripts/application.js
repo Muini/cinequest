@@ -25,47 +25,57 @@ $("#quests>ul").mCustomScrollbar({
 // New Quest Check Form
 var new_quest_form = $('new_post');
 
+function checkRegEx(it,regEx){
+    if(!regEx.test(it.val())){
+        it.css('background','red');
+        return false;
+    }else{
+        it.css('background','green'); 
+        return true;
+    }    
+}
+
 if(new_quest_form)
 {
     //Image URL Check
-    $( '#post_url_img' ).keyup(function() {
-        var inputVal = $(this).val();
-        var regEx = /.(png|jpg)$/;
-        if(!regEx.test(inputVal)) {
-            $(this).css('background','red');    
-        }else{
-            $(this).css('background','green');    
-        }
+    $( '#post_url_img' ).on("keyup click onchange",function() {
+        if( checkRegEx($(this),/.(png|jpg)$/) )
+            $('#form_film_informations').fadeIn("slow");
+        else
+            $('#form_film_informations').hide();
+        
         //Image Pre-viewer
-        $('#post_img_preview').attr('src',inputVal);
+        $('#post_img_preview').attr('src',$(this).val());
     });
+    
     //Difficulty Check
     $( '#post_difficulty_0,#post_difficulty_1,#post_difficulty_2' ).on('click',function(){
         if( $('#post_difficulty_0').is(":checked") )
         {
-            $('#post_clue').show();
+            $('#form_indices').slideDown();
         }else{
-            $('#post_clue').hide();
+            $('#form_indices').slideUp();
         }   
     });
+    
     //Film Name Check
-    $( '#post_film_name' ).keyup(function() {
+    $( '#post_film_name' ).on("keyup click onchange",function() {
         var inputVal = $(this).val();
         if(inputVal.length>255 || inputVal.length<1) {
-            $(this).css('background','red');    
+            $(this).css('background','red');  
+            $('#form_film_link').hide();
         }else{
-            $(this).css('background','green');    
+            $(this).css('background','green');
+            $('#form_film_link').fadeIn("slow");
         }
     });
+    
     //Film URL Check
-    $( '#post_url_film' ).keyup(function() {
-        var inputVal = $(this).val();
-        var regEx = /vodkaster\.com\/films/i;
-        if(!regEx.test(inputVal)) {
-            $(this).css('background','red');    
-        }else{
-            $(this).css('background','green');    
-        }
+    $( '#post_url_film' ).on("keyup click onchange",function() {
+        if( checkRegEx($(this),/vodkaster\.com\/films/i) )
+            $('#form_validation').fadeIn("slow");
+        else
+            $('#form_validation').hide();
     });
 }
 
@@ -75,27 +85,17 @@ var signin_form = $('new_user');
 if(signin_form)
 {
     //Pseudo Check
-    $( '#user_pseudo' ).keyup(function() {
-        var inputVal = $(this).val();
-        var regEx = /^[a-zA-Z0-9_]{3,25}$/;
-        if(!regEx.test(inputVal)) {
-            $(this).css('background','red');    
-        }else{
-            $(this).css('background','green');    
-        }
+    $( '#user_pseudo' ).on("keyup click onchange",function() {
+        checkRegEx($(this),/^[a-zA-Z0-9_]{3,25}$/);
     });
+    
     //Email Check
-    $( '#user_email' ).keyup(function() {
-        var inputVal = $(this).val();
-        var regEx = /^[^@\s]+@([^@\s]+\.)+[^@\s]+$/;
-        if(!regEx.test(inputVal)) {
-            $(this).css('background','red');    
-        }else{
-            $(this).css('background','green');    
-        }
+    $( '#user_email' ).on("keyup click onchange",function() {
+        checkRegEx($(this),/^[^@\s]+@([^@\s]+\.)+[^@\s]+$/);
     });
+    
     //Password Check
-    $( '#user_password' ).keyup(function() {
+    $( '#user_password' ).on("keyup click onchange",function() {
         var inputVal = $(this).val();
         if(inputVal.length>25 || inputVal.length<6) {
             $(this).css('background','red');    
@@ -103,21 +103,16 @@ if(signin_form)
             $(this).css('background','green');    
         }
     });
+    
     //Image URL Check
-    $( '#user_url_img' ).keyup(function() {
-        var inputVal = $(this).val();
-        var regEx = /.(png|jpg)$/;
-        if(!regEx.test(inputVal)) {
-            $(this).css('background','red');    
-        }else{
-            $(this).css('background','green');    
-        }
+    $( '#user_url_img' ).on("keyup click onchange",function() {
+        checkRegEx($(this), /.(png|jpg|gif)$/);
         //Image Pre-viewer
         $('#user_img_preview').attr('src',inputVal);
     });
 }
 
-//
+//Active class on quest list
 $('#quests_list li a').on('click',function(){
     if( $(this).hasClass('ql_active') )
     {
@@ -125,8 +120,6 @@ $('#quests_list li a').on('click',function(){
     }else{
         $('#quests_list li a').removeClass('ql_active');
         $(this).addClass('ql_active');
-//        $('.a_quest').fadeOut(500);  
+        TweenMax.to(document.querySelectorAll('.a_quest'),0.3,{opacity:0});
     }
-
-
 });

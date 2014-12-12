@@ -158,11 +158,33 @@ a{
     padding-top: 1px;
 }
 
+.form{
+    margin-left: 50px;
+    width: 360px;
+    height: 100%;
+    background-color: #ffffff;
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+    padding: 35px 25px 0 25px;
+}
+
 .form_style{
     background-color: #fafafa;
     border: 1px solid #ebebeb;
     border-radius: 4px;
     min-height: 25px;
+    width: 80%;
+    padding: 8px;
+    height: 25px;
+    display: block;
+    box-sizing: border-box;
+}
+.form_style:focus{
+    border-color: #142b51;
+    outline: 0;
+}
+.text_area{
+    height: 75px;
 }
 
 .radio_style{
@@ -171,6 +193,53 @@ a{
     border-radius: 4px;
     height: 25px;
     width: 25px;
+}
+
+.label{
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.form_img_preview{
+    width: 80%;
+    height: 100px;
+    overflow: hidden;
+    margin-top: 25px;
+    border-radius: 4px;
+}
+
+.form_img_preview>img{
+    width: 100%;
+}
+
+.small_infos{
+    margin-top: 25px;
+    font-size: 1.0rem;   
+}
+
+.hidden{
+    display:none;   
+}
+
+.submit_btn{
+    background: transparent;
+    border-radius: 4px;
+    padding:4px 7px 7px 7px;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+#error_explanation{
+    margin-top: 25px;
+}
+#error_explanation ul{
+    margin-top: 10px;
+    list-style-type:square;
+    padding-left: 14px;
+}
+#error_explanation li{
+    margin-top: 4px;
 }
 
 /* GLOBAL CSS */

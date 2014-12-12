@@ -1,30 +1,43 @@
-<h1>Création d'une quète</h1>
+<div class="form">
 
-<%= form_for @post do |f| %>
- 
-  <%= render 'shared/error_messages', object: f.object %>
- 
-  <!-- img avec ajax check de l'url pour l'afficher --> 
-  <%= f.label "URL de l'image" %>:    
-  <%= f.text_field :url_img, placeholder:"http://..." %><br/><p>L'image doit être au format .jpg ou .png</p>
-  <img id="post_img_preview" src="preview_quest.png" alt="Preview Image" />
-  
-  <%= f.label "Difficulté" %>
-  <%= f.radio_button :difficulty, "0", checked: true %>Facile
-  <%= f.radio_button :difficulty, "1" %>Moyen
-  <%= f.radio_button :difficulty, "2" %>Difficile
-  <br/><br/>
-  
-  <%= f.label "Indice(s)" %><small>( Seulement en facile )</small><br/>
-  <%= f.text_area :clue, placeholder:"Le film est sortie en -130 A.C" %><br/>
+    <h1 class="uppercase_font blue">nouvelle quète</h1>
 
-  <p>Les champs suivants seront affichés lorsque la quète sera close</p>
+    <%= form_for @post do |f| %>
 
-  <%= f.label "Titre du film" %>:    
-  <%= f.text_field :film_name, placeholder:"Kill Boule vol4 episode 7 partie 1" %><br/>
+      <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label "URL de la fiche film" %>:    
-  <%= f.text_field :url_film, placeholder:"http://vodkaster.com/films/..." %><p>Le lien doit venir de vodkaster</p>
-  
-  <%= f.submit "Gueux ! Une nouvelle quète !" %> 
-<% end %>
+      <!-- img avec ajax check de l'url pour l'afficher --> 
+      <%= f.label "Lien de l'image, format jpg ou png", class: "lowercase_light_font blue label" %>:    
+      <%= f.text_field :url_img, placeholder:"http://...", class: "form_style lowercase_regular_font blue" %>
+      <div class="form_img_preview">
+          <img id="post_img_preview" src="preview_quest.png" alt="Preview Image" />
+      </div>
+
+      <div id="form_film_informations" class="hidden">
+          <%= f.label "Niveau de difficulté", class: "lowercase_light_font blue label" %>
+          <%= f.radio_button :difficulty, "0", class: "radio_style", checked: true %>Facile
+          <%= f.radio_button :difficulty, "1", class: "radio_style" %>Moyen
+          <%= f.radio_button :difficulty, "2", class: "radio_style" %>Difficile
+
+          <div id="form_indices">
+              <%= f.label "Indice(s)", class: "lowercase_light_font blue label" %>
+              <%= f.text_area :clue, placeholder:"Le film est sortie en -130 A.C", class:"form_style lowercase_regular_font blue text_area" %>
+          </div>
+
+          <p class="uppercase_font blue small_infos">informations lorsque la quête est close</p>
+
+          <%= f.label "Titre du film", class: "lowercase_light_font blue label" %>:    
+          <%= f.text_field :film_name, placeholder:"Kill Boule vol4 episode 7 partie 1", class: "form_style lowercase_regular_font blue" %>
+
+          <div id="form_film_link" class="hidden">
+              <%= f.label "Lien de la fiche film (de Vodkaster)", class: "lowercase_light_font blue label" %>:    
+              <%= f.text_field :url_film, placeholder:"http://vodkaster.com/films/...", class: "form_style lowercase_regular_font blue" %>
+          </div>
+          
+      </div>
+      
+      <%= f.submit "proposer la quête", id: "form_validation", class: "action_btn uppercase_font blue submit_btn hidden" %> 
+      
+    <% end %>
+
+</div>
