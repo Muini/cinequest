@@ -91,6 +91,9 @@ a{
     text-decoration: none;
 }
 
+/* SCROLLBAR */
+
+
 /* CLASSES RÉUTILISABLES */
 
 .uppercase_font{
@@ -175,7 +178,8 @@ a{
 #main{
     width: 100%;
     height: 100%;
-    padding-top:75px;
+    padding-top:75px
+/*    overflow: hidden;*/
 }
 
 #main_header{
@@ -222,6 +226,7 @@ a{
     float: left;
     overflow-y: scroll;
     padding-bottom: 75px;
+    vertical-align: top;
 }
 
 #quests_list{
@@ -352,11 +357,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 #quest{
     overflow-y: scroll;
     height: 100%;
+    vertical-align: top;
 }
 
 .a_quest{
     margin: 0 50px 0 25px;
-    overflow: hidden;
 }
 
 .q_img_content{
