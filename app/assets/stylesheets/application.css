@@ -373,22 +373,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 }
 
 .q_img_overlay{
-    width: 100%;
     z-index: 10000;
     position: absolute;
-    bottom: 25px;
-    left: 25px;
+    bottom: 23px;
+    display: table;
+    width: 100%;
 }
 
 .q_img_overlay h1{
-    display: inline-block;
-    float: left;
+    display: table-cell;
+    padding-left: 25px;
+    width: 45px;
 }
 
 .q_difficulty{
-    display: inline-block;
-    margin-left: 25px;
-    width: 120px;
+    display: table-cell;
+    padding-left: 20px;
     position: relative;
 }
 
@@ -415,11 +415,56 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     background-color: #bf2e26;
 }
 
+.zoom_in{
+    display: table-cell;
+    width: 9px;
+    height: 9px;
+    background: url('zoom_in.png') no-repeat;
+    background-size: 9px 9px;
+    cursor: pointer;
+    padding-right: 34px;
+}
 
+.q_text_wrapper{
+    width: 100%;
+    height: 75px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+    background-color: #fafafa;
+    position: relative;
+}
 
+.q_text_action{
+    height: 75px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
 
+.q_answer{
+    z-index:999;
+}
 
+.q_clue{
+    z-index:99;
+}
 
+.q_title{
+    z-index:9;
+}
+
+.new_comment{
+    height: 75px;
+}
+
+.q_text_picture{
+    overflow:hidden;
+    padding: 25px 0 0 25px;
+}
 
 
 

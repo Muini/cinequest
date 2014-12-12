@@ -6,29 +6,33 @@
        <div class="q_img_overlay">
            <h1 class="white uppercase_font">#<%= @post.id %></h1>
            <p class="q_difficulty q_difficulty_<%= @post.difficulty %> white uppercase_font">difficulté</p>
+           <span class="zoom_in"></span>
        </div>
     </header>
     
-    <% if logged_in? %>
-        <% unless @post.found || current_user.id == @post.user.id || @post.closed %>
-            <section id="comment_form" class="q_answer">
-                <%= render 'comments/comment_form' %>
+    <div class="q_text_wrapper">
+        <% if logged_in? %>
+            <% unless @post.found || current_user.id == @post.user.id || @post.closed %>
+                <div class="min_profile_picture q_text_picture"><%= image_tag current_user.url_img, alt:"Photo de profil" %></div>
+                <section id="comment_form" class="q_answer q_text_action">
+                    <%= render 'comments/comment_form' %>
+                </section>
+            <% end %>
+        <% end %>
+
+        <% if @post.difficulty == 0 %>
+            <section class="q_clue q_text_action">
+                <p><%= sanitize(@post.clue) %></p>
             </section>
         <% end %>
-    <% end %>
-    
-    <% if @post.difficulty == 0 %>
-        <section class="q_clue">
-            <p><%= sanitize(@post.clue) %></p>
-        </section>
-    <% end %>
-    
-    <% if @post.found %>
-        <section class="q_title">
-            <h1><%= sanitize(@post.film_name) %></h1>
-            <a href=<%= sanitize(@post.url_film) %> target="_blank" class="q_film_link_label" ></a>
-        </section>
-    <% end %>
+
+        <% if @post.found %>
+            <section class="q_title q_text_action">
+                <h1><%= sanitize(@post.film_name) %></h1>
+                <a href=<%= sanitize(@post.url_film) %> target="_blank" class="q_film_link_label" ></a>
+            </section>
+        <% end %>
+    </div>
 
     <footer id="comments_list">
       <%= render partial: @post.reload.comments %>
