@@ -16,7 +16,10 @@
 //= require_tree .
 
 //NanoScroll Init
-$("#quest,#quests").nanoScroller();
+$("#quests,#quest").mCustomScrollbar({
+    axis:"y",
+    theme:"minimal-dark"
+});
 
 // New Quest Check Form
 var new_quest_form = $('new_post');
