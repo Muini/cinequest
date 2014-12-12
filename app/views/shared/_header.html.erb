@@ -10,11 +10,11 @@
       <%= image_tag current_user.url_img, class:"min_profile_picture", alt: "Photo de profil" %>
     <% end %>
   <% else %>
-    <%= link_to "Inscrivez-vous", :signin, class: "header_signin" %>
+    <%= link_to "inscrivez-vous", :signin, class: "header_signin white uppercase_font" %>
   <% end %>
   <% if logged_in? %>
     <!--<%= link_to "Je pars", :logout, class: "header_logout" %>-->
   <% else %>
-    <%= link_to "Login", :login, class: "header_login" %>
+    <%= link_to "connexion", :login, class: "header_login white uppercase_font" %>
   <% end %>
 </header>

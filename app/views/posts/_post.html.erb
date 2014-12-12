@@ -4,11 +4,8 @@
            <%= image_tag sanitize(@post.url_img), alt: "La capture du film" %>
        </div>
        <div class="q_img_overlay">
-           <h1>#<%= @post.id %></h1>
-           <p class="q_difficulty">
-                Difficulté
-                <span class="q_difficulty_<%= @post.difficulty %>" ></span>
-           </p>
+           <h1 class="white uppercase_font">#<%= @post.id %></h1>
+           <p class="q_difficulty q_difficulty_<%= @post.difficulty %> white uppercase_font">difficulté</p>
        </div>
     </header>
     
