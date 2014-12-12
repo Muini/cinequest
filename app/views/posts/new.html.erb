@@ -7,6 +7,7 @@
   <!-- img avec ajax check de l'url pour l'afficher --> 
   <%= f.label "URL de l'image" %>:    
   <%= f.text_field :url_img, placeholder:"http://..." %><br/><p>L'image doit être au format .jpg ou .png</p>
+  <img id="post_img_preview" src="preview_quest.png" alt="Preview Image" />
   
   <%= f.label "Difficulté" %>
   <%= f.radio_button :difficulty, "0", checked: true %>Facile

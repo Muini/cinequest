@@ -20,7 +20,8 @@
   <%= f.password_field :password %><p>6 à 25 caractères</p><br/>
   <!-- img avec ajax check de l'url pour l'afficher -->
   <%= f.label "URL de l'image de profil" %>:    
-  <%= f.text_field :url_img, placeholder:"http://img.jpg" %><br/> 
+  <%= f.text_field :url_img, placeholder:"http://img.jpg" %><br/>
+  <img id="user_img_preview" src="preview_user.png" alt="Preview Image" />
   <br/> 
   <%= f.submit "Que l'aventure commence !" %> 
 <% end %>
