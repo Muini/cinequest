@@ -52,6 +52,9 @@ time, mark, audio, video {
     font-size : 62.5%;
 
 }
+html{
+    height: 100%;
+}
 
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -62,8 +65,8 @@ body {
 	line-height: 1;
     background-color : #f0f0f0 ;
     width: 100%;
-    height: 100%;  
-    overflow: hidden;
+    height: 100%  
+/*    overflow: hidden;*/
 }
 
 ol, ul {
@@ -114,15 +117,15 @@ a{
 }
 
 .blue{
-    color: #142b51; /* Text colors */
+    color: #142b51 /* Text colors */
 }
 
 .red{
-    color: #bf2e26; /* Text colors */
+    color: #bf2e26 /* Text colors */
 }
 
 .white{
-    color: #fafafa; /* Text colors */
+    color: #fafafa /* Text colors */
 }
 
 .min_profile_picture{
@@ -171,9 +174,14 @@ a{
 
 #main{
     width: 100%;
+    height: 100%;
+    padding-top:75px;
 }
 
 #main_header{
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 75px;
     background-color: #142b51;
@@ -213,12 +221,13 @@ a{
     height: 100%;
     float: left;
     overflow-y: scroll;
+    padding-bottom: 75px;
 }
 
 #quests_list{
     margin-left: 50px;
     width: 360px;
-    height: 100%;
+    min-height: 100%;
     background-color: #ffffff;
     border-left: 1px solid #ebebeb;
     border-right: 1px solid #ebebeb;
@@ -342,6 +351,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 
 #quest{
     overflow-y: scroll;
+    height: 100%;
 }
 
 .a_quest{

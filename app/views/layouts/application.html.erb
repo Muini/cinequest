@@ -8,16 +8,13 @@
     <body>
 
     <%= render 'shared/header' %>
-    
-    <section id="content">
      
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
       
-      <%= yield %>
-      
-    </section>
+    <%= yield %>
+    
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     </body>
