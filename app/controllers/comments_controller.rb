@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 # Commentaires
 
   def new
-    @new_comment = Comment.new 
+#    @comment = Comment.new 
   end
     
   def create
@@ -20,7 +20,6 @@ class CommentsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render @post }
         format.js { render action: 'failed_save' }
       end
     end

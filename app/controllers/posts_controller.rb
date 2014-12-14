@@ -24,7 +24,6 @@ class PostsController < ApplicationController
     
     if request.xhr?
       respond_to do |format|
-        format.html { render @post }
         format.js
       end
     else
