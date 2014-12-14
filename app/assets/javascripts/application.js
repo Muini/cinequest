@@ -19,7 +19,7 @@
 $("#quests>ul").mCustomScrollbar({
     axis:"y",
     theme:"minimal-dark",
-    scrollInertia:500
+    scrollInertia:1000
 });
 
 // New Quest Check Form

@@ -4,12 +4,12 @@
       <%= image_tag sanitize(comment.user.url_img), alt: "Photo de profil", class: "comment-img" %>
     </div>
     <div class="comment_content">
-      <p class="comment-message"><%= sanitize(comment.message) %></p>
-      <p class="comment_infos"><%= time_ago_in_words(comment.created_at) %> par <%= link_to sanitize(comment.user.pseudo), user_url(comment.user.pseudo) %></p>
+      <p class="comment-message lowercase_regular_font blue"><%= sanitize(comment.message) %></p>
+      <p class="comment_infos lowercase_light_font blue"><%= time_ago_in_words(comment.created_at) %> par <%= link_to sanitize(comment.user.pseudo), user_url(comment.user.pseudo), class:'lowercase_light_font blue' %></p>
     </div>
 
     <% if comment.correct %>
-        <p class="comment_points_won"><%= sanitize(comment.user.pseudo)+" remporte "+comment.post.difficulty.to_i+1 %> crédits !</p>
+        <p class="comment_points_won uppercase_font blue"><%= sanitize(comment.user.pseudo)+" remporte "+comment.post.difficulty.to_i+1 %> crédits</p>
     <% end %>
 
     <% if logged_in? && current_user.id == comment.post.user.id && !comment.post.found && !comment.post.closed %>

@@ -318,7 +318,7 @@ a{
     position: relative;
 }
 
-.ql_active{
+#quests_list a:hover{
     background: #fafafa;
 background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZhZmFmYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMGYwZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
 background: -webkit-gradient(linear, left top, right top, color-stop(0%,#fafafa), color-stop(100%,#f0f0f0));
@@ -328,7 +328,7 @@ background: linear-gradient(to right,  #fafafa 0%,#f0f0f0 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#f0f0f0',GradientType=1 );
 }
 
-.ql_active:after{
+#quests_list a:hover:after{
     content:'';
     position: absolute;
     top: 0;
@@ -510,6 +510,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     border-bottom: 1px solid #ebebeb;
     background-color: #fafafa;
     position: relative;
+    overflow: hidden;
 }
 
 .q_text_action{
@@ -538,22 +539,121 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 
 .q_text_picture{
     overflow:hidden;
-    padding: 25px 0 0 25px;
+    float: left;
+    margin: 25px 0 0 25px;
+}
+
+.q_text_picture img{
+    width:100%;
+    height: 100%;
+}
+
+.q_answer{
+    padding-left: 62.5px;
+}
+
+.new_comment textarea{
+    appearance: none !important;
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    resize: none !important;
+    border: none;
+    background: transparent;
+    outline: none;
+    height: 20px;
+}
+
+.new_comment textarea::first-letter{
+    text-transform: uppercase;
+}
+
+.new_comment input{
+    border: 1px solid #142b51;
+    color: #142B51;
+    font-family: novecento_m;
+    font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    float: right;
+    margin: 24px 25px 0 0;
+    padding: 4px 10px 4px 10px;
+}
+
+.new_comment input:hover{
+    color: #fafafa;
+    background-color: #142B51;
+}
+
+.comment{
+    height: 75px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.comment:hover{
+    background-color: #ebebeb;
+}
+
+.comment_content{
+    margin: 24px 0 0 12.5px;
+    float: left;
+}
+
+.comment img{
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+    border-radius: 50%;
+    float: left;
+    margin: 25px 0 0 25px;
+}
+
+.comment-img{
+    width: 100%;
+    height: 100%;
+}
+
+.comment_infos{
+    margin-top: 5px;
+}
+
+.comment_infos a{
+    color: #244e91;
+}
+
+.comment-message{
+    text-shadow: 0 1px 0px #ffffff;
+}
+
+.q_title h1{
+    font-size: 2.2rem;
+    float: left;
+    margin: 25px 0 0 25px;
+}
+
+.q_film_link_label{
+    display: block;
+    height: 25px;
+    width: 93px;
+    background: url('allocine.png') no-repeat;
+    background-size: contain;
+    float: right;
+    margin: 25px 25px 0 0;
+    cursor: pointer;
+}
+
+.comment_good_answer{
+    background-color: #ebebeb;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+.comment_points_won{
+    float: right;
+    text-transform: lowercase;
+    margin: 31px 25px 0 0;
+}
 
 
 
