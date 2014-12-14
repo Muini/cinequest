@@ -17,7 +17,7 @@
     <% end %>
     
     <% if logged_in? && current_user.id == comment.user.id && !comment.post.found && !comment.post.closed %>
-        <%= link_to 'Supprimer', post_comment_path(comment.post, comment), method: :delete, remote: true, class: "comment_delete" %>
+        <%= link_to 'Supprimer', post_comment_path(comment.post, comment), method: :delete, remote: true, class: "comment_delete uppercase_font" %>
     <% end %>
 
 <% end %>

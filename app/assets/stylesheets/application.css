@@ -324,7 +324,7 @@ a{
     transform:translateY(100%)
 }
 
-#ql_active:hover{
+.ql_active{
     background: #fafafa;
 background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZhZmFmYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMGYwZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
 background: -webkit-gradient(linear, left top, right top, color-stop(0%,#fafafa), color-stop(100%,#f0f0f0));
@@ -334,7 +334,7 @@ background: linear-gradient(to right,  #fafafa 0%,#f0f0f0 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#f0f0f0',GradientType=1 );
 }
 
-#ql_active a:hover:after{
+.ql_active a:after{
     content:'';
     position: absolute;
     top: 0;
@@ -551,7 +551,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     margin: 25px 0 0 25px;
 }
 
-<<<<<<< HEAD
 .q_text_picture img{
     width:100%;
     height: 100%;
@@ -580,14 +579,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     border: 1px solid #142b51;
     color: #142B51;
     font-family: novecento_m;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     letter-spacing: 0.1rem;
     border-radius: 4px;
     background: transparent;
     cursor: pointer;
     float: right;
     margin: 24px 25px 0 0;
-    padding: 4px 10px 4px 10px;
+    padding: 5px 10px 5px 10px;
 }
 
 .new_comment input:hover{
@@ -734,7 +733,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 }
 
 
-
+.comment_delete{
+    float: right;
+    text-transform: lowercase;
+    color:#bf2e26;
+    padding: 5px 10px 5px 10px;
+    margin: 25px 25px 0 0;
+    border: 1px solid #bf2e26;  
+    border-radius: 4px;
+}
 
 
 
