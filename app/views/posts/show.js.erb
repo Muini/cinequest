@@ -1,13 +1,15 @@
 //Afficher le post dans la bonne colonne
-TweenMax.to(document.getElementById('quest'),0,{opacity:0});
+//TweenMax.to(document.getElementById('quest'),0,{opacity:0});
 $('#quest').html('<%= escape_javascript(render partial: @post) %>');
 //Animation d'affichage du contenu
 //var tl_quest = new TimelineMax({onComplete:function(){ /*Fini*/ }});
 
-TweenMax.to(document.getElementById('quest'),0.3,{opacity:1});
+//TweenMax.to(document.getElementById('quest'),0.3,{opacity:1});
 
 $(".a_quest").mCustomScrollbar({
     axis:"y",
     theme:"minimal-dark",
     scrollInertia:500
 });
+
+cqLightbox.init();

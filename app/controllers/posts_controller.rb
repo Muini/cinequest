@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post[:user_id] = current_user.id
     if @post.save
-      flash[:success] = "Votre quète à été ajouté !"
+      flash[:success] = "Votre quète à été ajoutée !"
       redirect_to :root
     else
       render :new

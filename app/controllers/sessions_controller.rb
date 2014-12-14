@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(pseudo: params[:session][:pseudo])
     if user && user.authenticate(params[:session][:password])
+      flash[:success] = 'Bienvenue à nouveau sur CineQuest !'
       log_in user
       redirect_to :root
     else

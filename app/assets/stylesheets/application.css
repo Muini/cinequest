@@ -161,11 +161,11 @@ a{
 .form{
     margin-left: 50px;
     width: 360px;
-    height: 100%;
+    min-height: 100%;
     background-color: #ffffff;
     border-left: 1px solid #ebebeb;
     border-right: 1px solid #ebebeb;
-    padding: 35px 25px 0 25px;
+    padding: 35px 25px 35px 25px;
 }
 
 .form_style{
@@ -207,10 +207,12 @@ a{
     overflow: hidden;
     margin-top: 25px;
     border-radius: 4px;
+    background: #d7d7d7;
 }
 
 .form_img_preview>img{
     width: 100%;
+    border: none;
 }
 
 .small_infos{
@@ -257,6 +259,7 @@ a{
     width: 100%;
     height: 75px;
     background-color: #142b51;
+    z-index: 200;
 }
 
 #main_header h1 img{
@@ -316,6 +319,9 @@ a{
     height: 75px;
     background-color: #fafafa;
     position: relative;
+    -webkit-transform:translateY(100%);
+    -ms-transform:translateY(100%);
+    transform:translateY(100%)
 }
 
 #quests_list a:hover{
@@ -445,10 +451,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 
 .q_img_wrapper img{
     width: 200%;
+    margin-left: -50%;
+    margin-top: -10%;
 }
 
 .q_img_overlay{
-    z-index: 10000;
+    z-index: 50;
     position: absolute;
     bottom: 23px;
     display: table;
@@ -543,6 +551,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     margin: 25px 0 0 25px;
 }
 
+<<<<<<< HEAD
 .q_text_picture img{
     width:100%;
     height: 100%;
@@ -584,6 +593,74 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 .new_comment input:hover{
     color: #fafafa;
     background-color: #142B51;
+    
+/* Lightbox */
+
+#lightbox{
+    display: none;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    padding-top: 75px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap /* Vertically Centered ! */;
+}
+#lightbox_close{
+    position: absolute;
+    top:100px;
+    right:50px;
+}
+#lightbox:after {
+    content:'';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+#lightbox img{
+    display: inline-block;
+    vertical-align: middle;
+    max-height: 100%;
+    max-width: 100%;
+}
+.cqLightbox{
+    cursor: pointer;   
+}
+
+/* Alert flash message */
+
+.alert{
+    position: fixed;
+    bottom:50px;
+    right:50px;
+    min-width: 320px;
+    max-width: 480px;
+    min-height: 75px;
+    max-height: 200px;
+    background: #333;
+    text-align: center;
+    padding: 25px;
+    display: table;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+.alert-success{
+    background-color: #4a9824;
+}
+.alert-danger{
+    background-color: #bf2e26;
+}
+.alert-error{
+    background-color: #bf2e26;  
+}
+.alert p{
+    display:table-cell;
+    vertical-align: middle;
 }
 
 .comment{

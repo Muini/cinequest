@@ -1,27 +1,36 @@
-<h1>Inscription</h1>
-<p>Inscrivez vous sur CineQuest</p>
 
-<%= form_for @user do |f| %> 
- 
-  <%= render 'shared/error_messages', object: f.object %>
- 
-  <%= f.label "Pseudo" %>:    
-  <%= f.text_field :pseudo, placeholder:"xXxD4rKxXx" %><p>3 à 25 caractères</p><br/>
+<div class="form">
 
-  <%= f.label "Nom" %>:    
-  <%= f.text_field :nom, placeholder:"John" %>
-  <%= f.label "Prenom" %>:    
-  <%= f.text_field :prenom, placeholder:"Rambo" %><br/>
-  
-  <%= f.label "e-mail" %>:
-  <%= f.text_field :email, placeholder:"hi@cinequest.fr"  %><br/>
-  
-  <%= f.label "Mot de passe" %>:
-  <%= f.password_field :password %><p>6 à 25 caractères</p><br/>
-  <!-- img avec ajax check de l'url pour l'afficher -->
-  <%= f.label "URL de l'image de profil" %>:    
-  <%= f.text_field :url_img, placeholder:"http://img.jpg" %><br/>
-  <img id="user_img_preview" src="preview_user.png" alt="Preview Image" />
-  <br/> 
-  <%= f.submit "Que l'aventure commence !" %> 
-<% end %>
+    <h1 class="uppercase_font blue">inscription</h1>
+
+    <%= form_for @user do |f| %> 
+
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label "Pseudo (3 à 25 caractères)", class: "lowercase_light_font blue label" %>  
+      <%= f.text_field :pseudo, placeholder:"xXxD4rKxXx", class: "form_style lowercase_regular_font blue" %>
+
+      <%= f.label "e-mail", class: "lowercase_light_font blue label" %>
+      <%= f.text_field :email, placeholder:"hi@cinequest.fr", class: "form_style lowercase_regular_font blue"  %>
+
+      <%= f.label "Mot de passe (6 à 25 caractères)", class: "lowercase_light_font blue label" %>
+      <%= f.password_field :password, class: "form_style lowercase_regular_font blue" %>
+      
+      <p class="uppercase_font blue small_infos">informations complémentaires optionnelles</p>
+      
+      <%= f.label "Nom", class: "lowercase_light_font blue label" %>   
+      <%= f.text_field :nom, placeholder:"John", class: "form_style lowercase_regular_font blue" %>
+      <%= f.label "Prenom", class: "lowercase_light_font blue label" %>  
+      <%= f.text_field :prenom, placeholder:"Rambo", class: "form_style lowercase_regular_font blue" %>
+      
+      <%= f.label "URL de l'image de profil", class: "lowercase_light_font blue label" %> 
+      <%= f.text_field :url_img, placeholder:"preview_user.png", class: "form_style lowercase_regular_font blue" %>
+      <div class="form_img_preview">
+          <img id="user_img_preview" src="preview_user.png" alt="Preview Image" />
+      </div>
+      
+      <%= f.submit "Que l'aventure commence !", class: "action_btn uppercase_font blue submit_btn" %> 
+    <% end %>
+
+
+</div>

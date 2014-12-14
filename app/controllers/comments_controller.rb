@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     if @new_comment.save
       respond_to do |format|
         format.html do
-          flash[:success] = 'Your comment has been posted.'
+          flash[:success] = 'Votre participation à été ajoutée !'
           redirect_to @post
         end
         format.js
@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
     @comment.destroy
     respond_to do |format|
       format.html do
-        flash[:success] = 'Participation supprimée.'
+        flash[:danger] = 'Participation supprimée.'
         redirect_to @post
       end
       format.js # JavaScript response

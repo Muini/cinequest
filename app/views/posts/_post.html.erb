@@ -1,12 +1,12 @@
 <section class="a_quest">
     <header class="q_img_content">
        <div class="q_img_wrapper">
-           <%= image_tag sanitize(@post.url_img), alt: "La capture du film" %>
+           <%= image_tag sanitize(@post.url_img), alt: "La capture du film", class:"cqLightbox", cqLightlink: sanitize(@post.url_img) %>
        </div>
        <div class="q_img_overlay">
            <h1 class="white uppercase_font">#<%= @post.id %></h1>
            <p class="q_difficulty q_difficulty_<%= @post.difficulty %> white uppercase_font">difficulté</p>
-           <span class="zoom_in"></span>
+           <span class="zoom_in cqLightbox" cqLightlink=<%= sanitize(@post.url_img) %>></span>
        </div>
     </header>
     
