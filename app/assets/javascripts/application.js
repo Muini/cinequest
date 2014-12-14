@@ -166,7 +166,6 @@ var cqLightbox = {
     },
         
     open: function(it){
-        console.log('open !');
         var href_img = it.getAttribute('cqLightlink');
         document.querySelectorAll('#lightbox img')[0].setAttribute('src', href_img);
         cqLightbox.it.style.display = "block";
@@ -174,7 +173,7 @@ var cqLightbox = {
     },
         
     close: function(){
-        TweenMax.to(cqLightbox.it,0.3,{y:'-100%',oncomplete:function(){ cqLightbox.it.style.display = "none"; }});
+        TweenMax.to(cqLightbox.it,0.3,{y:'-100%'});
     }
     
 }
@@ -186,14 +185,17 @@ cqLightbox.init();
 //============================
 
 var alerts = document.querySelectorAll('.alert');
-for(var i=0; i<alerts.length; i++)
+if(alerts.length>0)
 {
-    var it = alerts[i];
-    TweenMax.to(it,0.3,{scale:1});
-    
-    setTimeout( function(){
-        TweenMax.to(it,0.6,{x:'150%'});
-    }, 6000+(i*200) );
+    for(var i=0; i<alerts.length; i++)
+    {
+        var it = alerts[i];
+        TweenMax.to(it,0.3,{scale:1});
+
+        setTimeout( function(){
+            TweenMax.to(it,0.6,{x:'150%'});
+        }, 6000+(i*200) );
+    }
 }
 
 //============================
@@ -201,4 +203,7 @@ for(var i=0; i<alerts.length; i++)
 //============================
 
 var quests = document.querySelectorAll('#quests_list li');
-TweenMax.staggerTo(quests,0.6,{y:'0'},0.05);
+if(quests.length>0)
+    TweenMax.staggerTo(quests,0.6,{y:'0'},0.05);
+
+
