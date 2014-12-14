@@ -3,7 +3,12 @@ class UsersController < ApplicationController
 
 # Account creation
   def new
-    @user = User.new
+    if(logged_in?)
+      flash[:success] = "Vous êtes déjà inscrit et connecté sur le site !"
+      redirect_to :root  
+    else
+      @user = User.new
+    end
   end
     
   def create
@@ -27,10 +32,11 @@ class UsersController < ApplicationController
   def user_profil
     @user = User.find_by(pseudo: params[:pseudo])
     if @user.nil?
-      flash[:alert] = "Cet utilisateur n'existe pas !"
+      flash[:error] = "Cet utilisateur n'existe pas !"
       redirect_to :root
+    else
+      @nbr_comment = @user.comments.count
     end
-    @nbr_comment = @user.comments.count
   end
 
 # Private

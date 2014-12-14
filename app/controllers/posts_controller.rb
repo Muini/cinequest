@@ -28,6 +28,7 @@ class PostsController < ApplicationController
         format.js
       end
     else
+      flash[:error] = "Ce chemin est indisponible."
       redirect_to :root
     end
   end
