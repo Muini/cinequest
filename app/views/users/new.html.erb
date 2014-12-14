@@ -24,9 +24,9 @@
       <%= f.text_field :prenom, placeholder:"Rambo", class: "form_style lowercase_regular_font blue" %>
       
       <%= f.label "URL de l'image de profil", class: "lowercase_light_font blue label" %> 
-      <%= f.text_field :url_img, placeholder:"http://img.jpg", class: "form_style lowercase_regular_font blue" %>
+      <%= f.text_field :url_img, placeholder:"preview_user.png", class: "form_style lowercase_regular_font blue" %>
       <div class="form_img_preview">
-          <img id="post_img_preview" src="preview_user.png" alt="Preview Image" />
+          <img id="user_img_preview" src="preview_user.png" alt="Preview Image" />
       </div>
       
       <%= f.submit "Que l'aventure commence !", class: "action_btn uppercase_font blue submit_btn" %> 

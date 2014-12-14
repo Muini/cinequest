@@ -122,7 +122,7 @@ if(signin_form)
     $( '#user_url_img' ).on("keyup click onchange",function() {
         checkRegEx($(this), /.(png|jpg|gif)$/);
         //Image Pre-viewer
-        $('#user_img_preview').attr('src',inputVal);
+        $('#user_img_preview').attr('src',$(this).val());
     });
 }
 
@@ -193,7 +193,7 @@ for(var i=0; i<alerts.length; i++)
     
     setTimeout( function(){
         TweenMax.to(it,0.6,{x:'150%'});
-    }, 5000+(i*200) );
+    }, 6000+(i*200) );
 }
 
 //============================
