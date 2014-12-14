@@ -7,7 +7,7 @@
       <%= render 'shared/error_messages', object: f.object %>
 
       <!-- img avec ajax check de l'url pour l'afficher --> 
-      <%= f.label "Lien de l'image, format jpg ou png", class: "lowercase_light_font blue label" %>:    
+      <%= f.label "Lien de l'image, format jpg ou png", class: "lowercase_light_font blue label" %> 
       <%= f.text_field :url_img, placeholder:"http://...", class: "form_style lowercase_regular_font blue" %>
       <div class="form_img_preview">
           <img id="post_img_preview" src="preview_quest.png" alt="Preview Image" />
@@ -26,11 +26,11 @@
 
           <p class="uppercase_font blue small_infos">informations lorsque la quête est close</p>
 
-          <%= f.label "Titre du film", class: "lowercase_light_font blue label" %>:    
+          <%= f.label "Titre du film", class: "lowercase_light_font blue label" %>  
           <%= f.text_field :film_name, placeholder:"Kill Boule vol4 episode 7 partie 1", class: "form_style lowercase_regular_font blue" %>
 
           <div id="form_film_link" class="hidden">
-              <%= f.label "Lien de la fiche film (de Vodkaster)", class: "lowercase_light_font blue label" %>:    
+              <%= f.label "Lien de la fiche film (de Vodkaster)", class: "lowercase_light_font blue label" %>   
               <%= f.text_field :url_film, placeholder:"http://vodkaster.com/films/...", class: "form_style lowercase_regular_font blue" %>
           </div>
           

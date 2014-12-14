@@ -12,7 +12,7 @@
     <section id="main"> 
     
         <% flash.each do |message_type, message| %>
-          <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <div class="alert alert-<%= message_type %>"><p class="lowercase_light_font white"><%= message %></p></div>
         <% end %>
         
         <div id="lightbox">

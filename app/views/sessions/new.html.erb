@@ -1,14 +1,20 @@
-<h1>Connexion</h1>
-<p>CineQuest's time !</p>
 
-<%= form_for(:session, url: login_path) do |f| %> 
-  <%= f.label "Pseudo" %>:    
-  <%= f.text_field :pseudo, placeholder:"Un1C0rN" %><br/>
-  
-  <%= f.label "Mot de passe" %>:
-  <%= f.password_field :password, type: "password" %><br/>
+<div class="form">
 
-  <%= f.submit "Let's do this !" %> 
-<% end %>
+    <h1 class="uppercase_font blue">connexion</h1>
+    <!--<p class="uppercase_font blue small_infos">cinequest's time !</p>-->
 
-<p>Pas encore inscrit ? <%= link_to "Inscrivez-vous !", :signin %></p>
+    <%= form_for(:session, url: login_path) do |f| %> 
+      <%= f.label "Pseudo", class: "lowercase_light_font blue label" %>   
+      <%= f.text_field :pseudo, placeholder:"Un1C0rN", class: "form_style lowercase_regular_font blue" %><br/>
+
+      <%= f.label "Mot de passe", class: "lowercase_light_font blue label" %>
+      <%= f.password_field :password, type: "password", class: "form_style lowercase_regular_font blue" %><br/>
+
+      <%= f.submit "Let's do this !", class: "action_btn uppercase_font blue submit_btn" %> 
+    <% end %>
+
+    <p class="lowercase_regular_font blue small_infos">Pas encore inscrit ? <%= link_to "Inscrivez-vous !", :signin, class: "uppercase_font blue" %></p>
+
+
+</div>

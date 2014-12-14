@@ -126,6 +126,10 @@ if(signin_form)
     });
 }
 
+//============================
+//ACTIVE CLASS
+//============================
+
 //Active class on quest list
 $('#quests_list li a').on('click',function(){
     if( $(this).hasClass('ql_active') )
@@ -177,4 +181,24 @@ var cqLightbox = {
 
 cqLightbox.init();
 
+//============================
+//ALERT MESSAGES
+//============================
 
+var alerts = document.querySelectorAll('.alert');
+for(var i=0; i<alerts.length; i++)
+{
+    var it = alerts[i];
+    TweenMax.to(it,0.3,{scale:1});
+    
+    setTimeout( function(){
+        TweenMax.to(it,0.6,{x:'150%'});
+    }, 5000+(i*200) );
+}
+
+//============================
+//ANIMATIONS
+//============================
+
+var quests = document.querySelectorAll('#quests_list li');
+TweenMax.staggerTo(quests,0.6,{y:'0'},0.05);
