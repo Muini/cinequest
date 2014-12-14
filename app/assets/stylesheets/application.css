@@ -173,7 +173,7 @@ a{
     border: 1px solid #ebebeb;
     border-radius: 4px;
     min-height: 25px;
-    width: 80%;
+    width: 275px;
     padding: 8px;
     height: 25px;
     display: block;
@@ -195,10 +195,15 @@ a{
     width: 25px;
 }
 
+.label:first-of-type{
+    margin-top: 30px;
+}
+
 .label{
     display: block;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
 .form_img_preview{
@@ -227,9 +232,15 @@ a{
 .submit_btn{
     background: transparent;
     border-radius: 4px;
-    padding:4px 7px 7px 7px;
+    padding: 5px 10px 5px 10px;
     cursor: pointer;
-    margin-top: 25px;
+    margin-top: 20px;
+    text-transform: lowercase;
+}
+
+.submit_btn:hover{
+    color:#fafafa;
+    background-color: #142b51;
 }
 
 #error_explanation{
@@ -743,6 +754,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     border-radius: 4px;
 }
 
+.comment_delete:hover{
+    background-color: #bf2e26;
+    color: #fafafa;
+}
 
 
 
