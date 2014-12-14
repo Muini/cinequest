@@ -14,6 +14,11 @@
         <% flash.each do |message_type, message| %>
           <div class="alert alert-<%= message_type %>"><%= message %></div>
         <% end %>
+        
+        <div id="lightbox">
+            <a id="lightbox_close" class="uppercase_font action_btn white submit_btn">fermer</a>
+            <img src="http://aws.vdkimg.com/film/5/2/9/8/52988_backdrop_scale_1280xauto.jpg" alt="" />
+        </div>
 
         <%= yield %>
     

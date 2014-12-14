@@ -15,6 +15,10 @@
 //= require turbolinks
 //= require_tree .
 
+//============================
+//INIT
+//============================
+
 //Custom Scroll Init
 $("#quests>ul").mCustomScrollbar({
     axis:"y",
@@ -22,7 +26,14 @@ $("#quests>ul").mCustomScrollbar({
     scrollInertia:500
 });
 
+//============================
+//FORMS
+//============================
+
+// -----------
 // New Quest Check Form
+// -----------
+
 var new_quest_form = $('new_post');
 
 function checkRegEx(it,regEx){
@@ -79,7 +90,10 @@ if(new_quest_form)
     });
 }
 
-//  Check Form
+// -----------
+// Signin Check Form
+// -----------
+
 var signin_form = $('new_user');
 
 if(signin_form)
@@ -123,3 +137,44 @@ $('#quests_list li a').on('click',function(){
         TweenMax.to(document.querySelectorAll('.a_quest'),0.3,{opacity:0});
     }
 });
+
+//============================
+//LIGHTBOX
+//============================
+
+var cqLightbox = {
+    
+    it: document.getElementById('lightbox'),
+    
+    init: function(){
+        document.getElementById('lightbox_close').onclick = function(){
+            cqLightbox.close();
+        };
+        var elems = document.querySelectorAll('.cqLightbox');
+        for(var i=0; i<elems.length; i++)
+        {
+            var it = elems[i];
+            it.onclick = function(){
+                cqLightbox.open(it);
+            };
+        }
+        TweenMax.to(cqLightbox.it,0,{y:'-100%'});
+    },
+        
+    open: function(it){
+        console.log('open !');
+        var href_img = it.getAttribute('cqLightlink');
+        document.querySelectorAll('#lightbox img')[0].setAttribute('src', href_img);
+        cqLightbox.it.style.display = "block";
+        TweenMax.to(cqLightbox.it,0.6,{y:'0%'/*, ease:Bounce.easeOut*/});
+    },
+        
+    close: function(){
+        TweenMax.to(cqLightbox.it,0.3,{y:'-100%',oncomplete:function(){ cqLightbox.it.style.display = "none"; }});
+    }
+    
+}
+
+cqLightbox.init();
+
+
