@@ -2,7 +2,7 @@
 
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.text_area :message %>
+  <%= f.text_area :message, placeholder: "Ecrivez votre réponse ici..." %>
 
   <%= f.submit 'envoyer' %>
 <% end %>
