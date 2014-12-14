@@ -9,7 +9,7 @@
     </div>
 
     <% if comment.correct %>
-        <p class="comment_points_won uppercase_font blue"><%= sanitize(comment.user.pseudo)+" remporte "+comment.post.difficulty.to_i+1 %> crédits</p>
+        <p class="comment_points_won uppercase_font blue"><%= sanitize(comment.user.pseudo) %> remporte <%= comment.post.difficulty.to_i+1 %> crédits</p>
     <% end %>
 
     <% if logged_in? && current_user.id == comment.post.user.id && !comment.post.found && !comment.post.closed %>

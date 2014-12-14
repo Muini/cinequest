@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 # Commentaires
 
   def new
-#    @comment = Comment.new 
+
   end
     
   def create
