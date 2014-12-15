@@ -15,6 +15,17 @@
 //= require turbolinks
 //= require_tree .
 
+
+$(".show_indice").click(function() {
+    alert("test");
+  $('.q_clue').css('z-index','20');
+});
+
+$(".q_clue a").click(function() {
+  $('.q_clue').css('z-index','5');
+});
+
+
 //============================
 //INIT
 //============================
@@ -209,4 +220,6 @@ var quests = document.querySelectorAll('#quests_list li');
 if(quests.length>0)
     TweenMax.staggerTo(quests,0.6,{y:'0'},0.05);
 
-
+//============================
+//INDICES
+//============================
