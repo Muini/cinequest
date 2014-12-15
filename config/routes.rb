@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   get    'logout'  => 'sessions#destroy'
 
-  resources :posts, only: [:new, :create, :destroy, :show], path: "quetes" do
-    resources :comments, only: [:new, :create, :destroy, :show], path: "participations"
+  resources :posts, only: [:new, :create, :show], path: "quetes" do
+    resources :comments, only: [:create, :destroy], path: "participations"
     get 'validate_comment/:id' => 'comments#validate_comment', as: 'validate_comment'
   end
 end

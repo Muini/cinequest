@@ -36,12 +36,15 @@ $("#quests>ul").mCustomScrollbar({
 
 var new_quest_form = $('new_post');
 
+var color_invalid = "#ebd4dc"
+var color_valid = "#e2ebd4"
+
 function checkRegEx(it,regEx){
     if(!regEx.test(it.val())){
-        it.css('background','red');
+        it.css('background',color_invalid);
         return false;
     }else{
-        it.css('background','green'); 
+        it.css('background',color_valid); 
         return true;
     }    
 }
@@ -73,17 +76,17 @@ if(new_quest_form)
     $( '#post_film_name' ).on("keyup click onchange",function() {
         var inputVal = $(this).val();
         if(inputVal.length>255 || inputVal.length<1) {
-            $(this).css('background','red');  
+            $(this).css('background',color_invalid);  
             $('#form_film_link').hide();
         }else{
-            $(this).css('background','green');
+            $(this).css('background',color_valid);
             $('#form_film_link').fadeIn("slow");
         }
     });
     
     //Film URL Check
     $( '#post_url_film' ).on("keyup click onchange",function() {
-        if( checkRegEx($(this),/vodkaster\.com\/films/i) )
+        if( checkRegEx($(this),/allocine\.fr\/film/i) )
             $('#form_validation').fadeIn("slow");
         else
             $('#form_validation').hide();
@@ -112,9 +115,9 @@ if(signin_form)
     $( '#user_password' ).on("keyup click onchange",function() {
         var inputVal = $(this).val();
         if(inputVal.length>25 || inputVal.length<6) {
-            $(this).css('background','red');    
+            $(this).css('background',color_invalid);    
         }else{
-            $(this).css('background','green');    
+            $(this).css('background',color_valid);    
         }
     });
     
