@@ -18,7 +18,7 @@
                     <%= render 'comments/comment_form' %>
                 </section>
                 <% if @post.difficulty == 0 && !@post.clue.nil? %>
-                    <a class="blue uppercase_font">Voir l'indice</a>
+                    <a class="blue uppercase_font show_indice">Voir l'indice</a>
                 <% end %>
             <% end %>
         <% end %>
@@ -35,7 +35,7 @@
                 <h1><%= sanitize(@post.film_name) %></h1>
                 <a href=<%= sanitize(@post.url_film) %> target="_blank" class="q_film_link_label" ></a>
                 <% if @post.difficulty == 0 && !@post.clue.nil? %>
-                    <a class="blue uppercase_font">Voir l'indice</a>
+                    <a class="blue uppercase_font show_indice">Voir l'indice</a>
                 <% end %>
             </section>
         <% end %>

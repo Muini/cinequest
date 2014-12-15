@@ -809,7 +809,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     margin: 31px 25px 0 0;
 }
 
-.q_title a:last-child, #comment_form+a{
+.show_indice{
     float: right;
     margin: 31px 25px 0 0;
     text-transform: lowercase;
@@ -869,6 +869,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     color: #142B51;
 }
 
+.header_logout{
+    text-transform: lowercase;
+    float: right;
+    margin: 31px 25px 0 0;
+}
 
 
 

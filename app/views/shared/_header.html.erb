@@ -13,7 +13,7 @@
     <%= link_to "inscrivez-vous", :signin, class: "header_signin white uppercase_font" %>
   <% end %>
   <% if logged_in? %>
-    <!--<%= link_to "Je pars", :logout, class: "header_logout" %>-->
+    <%= link_to "Je pars", :logout, class: "header_logout white uppercase_font" %>
   <% else %>
     <%= link_to "connexion", :login, class: "header_login white uppercase_font" %>
   <% end %>
