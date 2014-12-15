@@ -345,7 +345,7 @@ background: linear-gradient(to right,  #fafafa 0%,#f0f0f0 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#f0f0f0',GradientType=1 );
 }
 
-.ql_active a:after{
+.ql_active:after{
     content:'';
     position: absolute;
     top: 0;
@@ -541,15 +541,40 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 }
 
 .q_answer{
-    z-index:999;
+    z-index:15;
+    background-color: #fafafa;
 }
 
 .q_clue{
-    z-index:99;
+    z-index:5;
+    display: table;
+    background-color: #fafafa;
 }
 
 .q_title{
-    z-index:9;
+    z-index:10;
+    background-color: #fafafa;
+}
+
+.q_clue p{
+    line-height: 1.8rem;
+    padding: 0 25px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.q_clue a{
+    width: 9px;
+    height: 9px;
+    padding: 0 21px 0 21px;
+    text-indent: -100px;
+    background: url('puce3.png') no-repeat;
+    background-size: 9px;
+    background-position: 50%;
+    overflow: hidden;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
 
 .new_comment{
@@ -582,11 +607,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     height: 20px;
 }
 
+#comment_message{
+    border: none;
+    outline: none;
+    background: transparent;
+    margin-top: 27px;
+    width: 50%;
+}
+
 .new_comment textarea::first-letter{
     text-transform: uppercase;
 }
 
-.new_comment input{
+.new_comment input:not(#comment_message){
     border: 1px solid #142b51;
     color: #142B51;
     font-family: novecento_m;
@@ -598,9 +631,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     float: right;
     margin: 24px 25px 0 0;
     padding: 5px 10px 5px 10px;
+    outline: none;
 }
 
-.new_comment input:hover{
+.new_comment input:not(#comment_message):hover{
     color: #fafafa;
     background-color: #142B51;
 }
@@ -653,27 +687,35 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     min-height: 75px;
     max-height: 200px;
     background: #fafafa;
-    text-align: center;
-    padding: 25px;
-    display: table;
     border-radius: 4px;
     border: 1px solid #ebebeb;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
     transform: scale(0);
 }
 .alert-success{
-    background-color: #4a9824;
+    color: #4a9824;
 }
 .alert-danger{
-    background-color: #bf2e26;
+    color: #bf2e26;
 }
 .alert-error{
-    background-color: #bf2e26;  
+    color: #bf2e26;  
 }
 .alert p{
-    display:table-cell;
-    vertical-align: middle;
+    color: inherit;
 }
 
 .comment{
@@ -711,6 +753,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 
 .comment_infos a{
     color: #244e91;
+}
+
+.comment_infos a:hover{
 }
 
 .comment-message{
@@ -761,10 +806,71 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     color: #fafafa;
 }
 
+.comment_validate{
+    text-transform: lowercase;
+    float: right;
+    margin: 31px 25px 0 0;
+}
 
+.q_title a:last-child, .q_text a:last-child{
+    float: right;
+    margin: 31px 25px 0 0;
+    text-transform: lowercase;
+}
 
+.p_user_image{
+    width: 100px;
+    border-radius: 50%;
+    margin: 50px 0 0 50px;
+    float: left;
+    border: 2px solid white;
+}
 
+.p_user_pseudo{
+    margin: 76px 0 0 175px;
+    font-family: roboto_l;
+    font-size: 2.2rem;
+    color: #142B51;
+    border-bottom: 1px dotted #dddddd;
+    padding-bottom: 8px;
+    width: 300px;
+}
 
+.p_user_pseudo+h3{
+    margin: 8px 0 0 175px;
+    font-family: roboto_r;
+    font-size: 1.2rem;
+    color: #142B51;
+}
+
+.p_user_mail, .p_user_credits, .p_user_g_credits, .p_user_nb_participations{
+    margin-top: 25px;
+    font-family: roboto_l;
+    font-size: 1.2rem;
+    color: #142B51;
+    margin-left: 175px;
+}
+
+.p_user_mail{
+    margin-top: 50px;
+}
+
+.p_user_nb_quest{
+    margin: 50px 0 0 175px;
+    font-family: roboto_l;
+    font-size: 2.2rem;
+    color: #142B51;
+    border-bottom: 1px dotted #dddddd;
+    padding-bottom: 8px;
+    width: 300px;
+}
+
+.p_user_nb_quest+ul li p{
+    margin: 25px 0 0 175px;
+    font-family: roboto_l;
+    font-size: 1.2rem;
+    color: #142B51;
+}
 
 
 

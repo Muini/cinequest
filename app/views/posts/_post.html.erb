@@ -25,18 +25,18 @@
 
         <% if @post.difficulty == 0 && !@post.clue.nil? %>
             <section class="q_clue q_text_action">
-                <p><%= sanitize(@post.clue) %></p>
-                <a>X</a>
+                <p class="blue lowercase_regular_font"><%= sanitize(@post.clue) %></p>
+                <a>Cacher l'indice</a>
             </section>
         <% end %>
 
         <% if @post.found %>
             <section class="q_title q_text_action blue lowercase_light_font">
                 <h1><%= sanitize(@post.film_name) %></h1>
-                <% if @post.difficulty == 0 && !@post.clue.nil? %>
-                    <a>Voir l'indice</a>
-                <% end %>
                 <a href=<%= sanitize(@post.url_film) %> target="_blank" class="q_film_link_label" ></a>
+                <% if @post.difficulty == 0 && !@post.clue.nil? %>
+                    <a class="blue uppercase_font">Voir l'indice</a>
+                <% end %>
             </section>
         <% end %>
     </div>

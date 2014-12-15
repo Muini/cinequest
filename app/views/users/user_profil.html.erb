@@ -1,20 +1,20 @@
-<h1>Profil de <%= @user.pseudo %></h1>
+<img class="p_user_image" src=<%= @user.url_img %> alt="Photo de profil" />
+<h1 class="p_user_pseudo">Profil de <%= @user.pseudo %></h1>
 <% if logged_in? %>
   <h3><%= @user.nom %> <%= @user.prenom %></h3>
 <% end %>
-<img src=<%= @user.url_img %> alt="Photo de profil" />
 
 <% if logged_in? && current_user.id == @user.id %>
-<p>Mail (visible par vous uniquement) : <%= @user.email %></p>
+<p class="p_user_mail">Mail (visible par vous uniquement) : <%= @user.email %></p>
 <% end %>
 
-<p>Crédit(s) : <%= @user.credits %></p>
+<p class="p_user_credits">Crédit(s) : <%= @user.credits %></p>
 
-<p>Gold Crédit(s) : <%= @user.r_credits %></p>
+<p class="p_user_g_credits">Gold Crédit(s) : <%= @user.r_credits %></p>
 
-<p>Nombre de participations : <%= @nbr_comment %></p>
+<p class="p_user_nb_participations">Nombre de participations : <%= @nbr_comment %></p>
 
-<h4>Quètes proposées (<%= @user.posts.count %>)</h4>
+<h4 class="p_user_nb_quest">Quètes proposées (<%= @user.posts.count %>)</h4>
 <ul>
   <% @user.posts.each do |post| %>
     <li>

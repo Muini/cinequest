@@ -13,7 +13,7 @@
     <% end %>
 
     <% if logged_in? && current_user.id == comment.post.user.id && !comment.post.found && !comment.post.closed %>
-        <%= link_to 'Bonne réponse !', post_validate_comment_path(comment.post, comment), method: :get, remote: true, class: "comment_validate" %>
+        <%= link_to 'Bonne réponse !', post_validate_comment_path(comment.post, comment), method: :get, remote: true, class: "comment_validate uppercase_font blue" %>
     <% end %>
     
     <% if logged_in? && current_user.id == comment.user.id && !comment.post.found && !comment.post.closed %>
