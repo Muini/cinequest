@@ -592,10 +592,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     height: 100%;
 }
 
-.q_answer{
-    padding-left: 62.5px;
-}
-
 .new_comment textarea{
     appearance: none !important;
     -moz-appearance: none !important;
@@ -613,6 +609,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     background: transparent;
     margin-top: 27px;
     width: 50%;
+    margin-left: 12.5px;
 }
 
 .new_comment textarea::first-letter{
@@ -812,7 +809,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     margin: 31px 25px 0 0;
 }
 
-.q_title a:last-child, .q_text a:last-child{
+.q_title a:last-child, #comment_form+a{
     float: right;
     margin: 31px 25px 0 0;
     text-transform: lowercase;

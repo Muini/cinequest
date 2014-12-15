@@ -13,12 +13,12 @@
     <div class="q_text_wrapper">
         <% if logged_in? %>
             <% unless @post.found || current_user.id == @post.user.id || @post.closed %>
-                <div class="min_profile_picture q_text_picture"><%= image_tag current_user.url_img, alt:"Photo de profil" %></div>
                 <section id="comment_form" class="q_answer q_text_action">
+                     <div class="min_profile_picture q_text_picture"><%= image_tag current_user.url_img, alt:"Photo de profil" %></div>
                     <%= render 'comments/comment_form' %>
                 </section>
                 <% if @post.difficulty == 0 && !@post.clue.nil? %>
-                    <a>Voir l'indice</a>
+                    <a class="blue uppercase_font">Voir l'indice</a>
                 <% end %>
             <% end %>
         <% end %>
