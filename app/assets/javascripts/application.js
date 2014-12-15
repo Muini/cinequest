@@ -23,7 +23,7 @@
 $("#quests>ul").mCustomScrollbar({
     axis:"y",
     theme:"minimal-dark",
-    scrollInertia:1000
+    scrollInertia:50
 });
 
 //============================
