@@ -40,14 +40,6 @@ ActiveRecord::Schema.define(version: 20141211085739) do
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
-  create_table "rushes", force: true do |t|
-    t.date     "date_d"
-    t.date     "date_f"
-    t.boolean  "special",    default: false, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "pseudo"
     t.string   "nom"
