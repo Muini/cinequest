@@ -5,7 +5,7 @@
     </div>
     <div class="comment_content">
       <p class="comment-message lowercase_regular_font blue"><%= sanitize(comment.message) %></p>
-      <p class="comment_infos lowercase_light_font blue"><%= time_ago_in_words(comment.created_at) %> par <%= link_to sanitize(comment.user.pseudo), user_url(comment.user.pseudo), class:'lowercase_light_font blue' %></p>
+      <p class="comment_infos lowercase_light_font blue"><%= time_ago_in_words(comment.created_at) %> par <%= link_to sanitize(comment.user.pseudo), user_url(comment.user.pseudo), class:'lowercase_light_font blue', target: '_blank' %></p>
     </div>
 
     <% if comment.correct %>
