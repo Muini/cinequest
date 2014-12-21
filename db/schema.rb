@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20141211085739) do
     t.string   "url_film"
     t.integer  "user_id"
     t.boolean  "found",      default: false, null: false
-    t.integer  "difficulty", default: 0,     null: false
+    t.integer  "difficulty", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "film_name"
