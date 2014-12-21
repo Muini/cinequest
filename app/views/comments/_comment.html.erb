@@ -1,23 +1,23 @@
 <%= div_for comment, class: (comment.correct ? 'comment_good_answer' : '') do %>
-  
-    <div class="comment_img">
-      <%= image_tag sanitize(comment.user.url_img), alt: "Photo de profil", class: "comment-img" %>
+    <div>
+        <div class="comment_img">
+          <%= image_tag sanitize(comment.user.url_img), alt: "Photo de profil", class: "comment-img" %>
+        </div>
+        <div class="comment_content">
+          <p class="comment-message lowercase_regular_font blue"><%= sanitize(comment.message) %></p>
+          <p class="comment_infos lowercase_light_font blue"><%= time_ago_in_words(comment.created_at) %> par <%= link_to sanitize(comment.user.pseudo), user_url(comment.user.pseudo), class:'lowercase_light_font blue', target: '_blank' %></p>
+        </div>
+
+        <% if comment.correct %>
+            <p class="comment_points_won uppercase_font blue"><%= sanitize(comment.user.pseudo) %> remporte <%= comment.post.difficulty.to_i+1 %> crédits</p>
+        <% end %>
+
+        <% if logged_in? && current_user.id == comment.post.user.id && !comment.post.found && !comment.post.closed %>
+            <%= link_to 'Bonne réponse !', post_validate_comment_path(comment.post, comment), method: :get, remote: true, class: "comment_validate uppercase_font blue submit_btn" %>
+        <% end %>
+
+        <% if logged_in? && current_user.id == comment.user.id && !comment.post.found && !comment.post.closed %>
+            <%= link_to 'x', post_comment_path(comment.post, comment), method: :delete, remote: true, class: "comment_delete uppercase_font" %>
+        <% end %>
     </div>
-    <div class="comment_content">
-      <p class="comment-message lowercase_regular_font blue"><%= sanitize(comment.message) %></p>
-      <p class="comment_infos lowercase_light_font blue"><%= time_ago_in_words(comment.created_at) %> par <%= link_to sanitize(comment.user.pseudo), user_url(comment.user.pseudo), class:'lowercase_light_font blue', target: '_blank' %></p>
-    </div>
-
-    <% if comment.correct %>
-        <p class="comment_points_won uppercase_font blue"><%= sanitize(comment.user.pseudo) %> remporte <%= comment.post.difficulty.to_i+1 %> crédits</p>
-    <% end %>
-
-    <% if logged_in? && current_user.id == comment.post.user.id && !comment.post.found && !comment.post.closed %>
-        <%= link_to 'Bonne réponse !', post_validate_comment_path(comment.post, comment), method: :get, remote: true, class: "comment_validate uppercase_font blue" %>
-    <% end %>
-    
-    <% if logged_in? && current_user.id == comment.user.id && !comment.post.found && !comment.post.closed %>
-        <%= link_to 'Supprimer', post_comment_path(comment.post, comment), method: :delete, remote: true, class: "comment_delete uppercase_font" %>
-    <% end %>
-
 <% end %>

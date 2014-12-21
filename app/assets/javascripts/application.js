@@ -15,17 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-
-$(".show_indice").click(function() {
-    alert("test");
-  $('.q_clue').css('z-index','20');
-});
-
-$(".q_clue a").click(function() {
-  $('.q_clue').css('z-index','5');
-});
-
-
 //============================
 //INIT
 //============================
@@ -195,6 +184,37 @@ var cqLightbox = {
 cqLightbox.init();
 
 //============================
+//INDICES
+//============================
+
+var post = {
+    
+    initIndices: function(){
+    
+        $(".show_indice").on('click',function() {
+            TweenMax.to(document.getElementById('comment_form'),0.3,{x:"-100%"});
+        });
+        $(".q_clue a").on('click',function() {
+            TweenMax.to(document.getElementById('comment_form'),0.3,{x:"0%"});
+        });
+
+    },
+    
+    initCheckCom: function(){
+    
+        $("#comment_message").on("keyup", function(){
+            if($(this).length>140)
+            {
+                console.log("STOP");
+                return false;
+            }
+        });
+    
+    }
+
+}
+
+//============================
 //ALERT MESSAGES
 //============================
 
@@ -219,7 +239,3 @@ if(alerts.length>0)
 var quests = document.querySelectorAll('#quests_list li');
 if(quests.length>0)
     TweenMax.staggerTo(quests,0.6,{y:'0'},0.05);
-
-//============================
-//INDICES
-//============================

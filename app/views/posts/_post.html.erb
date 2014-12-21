@@ -4,7 +4,10 @@
            <%= image_tag sanitize(@post.url_img), alt: "La capture du film", class:"cqLightbox", cqLightlink: sanitize(@post.url_img) %>
        </div>
        <div class="q_img_overlay">
-           <h1 class="white uppercase_font">#<%= @post.id %></h1>
+           <h1>
+                <p class="white uppercase_font">&nbsp;#<%= @post.id %> par </p>
+                <%= link_to sanitize(@post.user.pseudo).downcase, user_url(@post.user.pseudo), class:'white uppercase_font', target: '_blank' %>
+           </h1>
            <p class="q_difficulty q_difficulty_<%= @post.difficulty %> white uppercase_font">difficulté</p>
            <span class="zoom_in cqLightbox" cqLightlink=<%= sanitize(@post.url_img) %>></span>
        </div>
@@ -28,7 +31,9 @@
         <% if @post.difficulty == 0 && !@post.clue.nil? %>
             <section class="q_clue q_text_action">
                 <p class="blue lowercase_regular_font"><%= sanitize(@post.clue) %></p>
-                <a>Cacher l'indice</a>
+                <% if current_user.id != @post.user.id %>
+                    <a>Cacher l'indice</a>
+                <% end %>
             </section>
         <% end %>
 
