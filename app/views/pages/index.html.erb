@@ -5,7 +5,7 @@
   <% @posts.each do |post| %>
     <li>
 
-      <%= link_to post, remote: true  do %>
+      <%= link_to post, remote: true do %>
 
         <% if post.found %>
           <p class="ql_found uppercase_font white">trouvée</p>

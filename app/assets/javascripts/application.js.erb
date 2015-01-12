@@ -36,8 +36,8 @@ $("#quests>ul").mCustomScrollbar({
 
 var new_quest_form = $('new_post');
 
-var color_invalid = "#ebd4dc"
-var color_valid = "#e2ebd4"
+var color_invalid = "#ebd4dc";
+var color_valid = "#e2ebd4";
 
 function checkRegEx(it,regEx){
     if(!regEx.test(it.val())){
@@ -50,7 +50,7 @@ function checkRegEx(it,regEx){
 }
 
 if(new_quest_form)
-{
+{   
     //Image URL Check
     $( '#post_url_img' ).on("keyup click onchange",function() {
         if( checkRegEx($(this),/.(png|jpg)$/) )
@@ -86,10 +86,11 @@ if(new_quest_form)
     
     //Film URL Check
     $( '#post_url_film' ).on("keyup click onchange",function() {
-        if( checkRegEx($(this),/allocine\.fr\/film/i) )
-            $('#form_validation').fadeIn("slow");
-        else
-            $('#form_validation').hide();
+        if( checkRegEx($(this),/allocine\.fr\/film/i) ){
+            $('#validate_btn').removeClass('disabled_btn');
+        }else{
+            $('#validate_btn').addClass('disabled_btn');
+        }
     });
 }
 
@@ -139,7 +140,7 @@ $('#quests_list li a').on('click',function(){
     {
         return false;
     }else{
-        $('#quest').append('<img class="loader" src="<%= asset_path("loader.gif") %>" alt="Loading" />');
+        $('#quest').html('<img class="loader" src="<%= asset_path("loader.gif") %>" alt="Loading" />');
         $('#quests_list li a').removeClass('ql_active');
         $(this).addClass('ql_active');
 //        TweenMax.to(document.querySelectorAll('.a_quest'),0.3,{opacity:0});

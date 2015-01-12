@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+    <!-- Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-15013305-7', 'auto');
+      ga('send', 'pageview');
+    </script>
+   
     <head>
-      <title>CineQuest</title>
-      <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-      <%= csrf_meta_tags %>
+        <meta charset="utf-8">
+        <title>CineQuest</title>
+        <link rel="icon" type="image/png" href="<%= asset_path('favicon.png') %>" />
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true, cache: true %>
+        <%= csrf_meta_tags %>
+      
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        
+        <!-- SEO -->
+        
+        <meta name="robots" content="index,follow">
+        
+        <meta name="description" content="CineQuest est un jeu épique où vous devez trouver le nom du film dont provient la capture d'écran. Challenge, connaissance, conquête, tout conviendra aux cinéphiles comme aux néophytes.">
+
+        <link rel="canonical" href="http://cinequest.fr/">
+        <link rel="publisher" href="https://plus.google.com/103538158784154995946">
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@cinequest_fr">
+        <meta name="twitter:creator" content="@corentinflach">
+        <meta name="twitter:title" content="CineQuest - Prenez part à l'épique bataille des noms de films">
+        <meta name="twitter:description" content="CineQuest est un jeu épique où vous devez trouver le nom du film dont provient la capture d'écran. Challenge, connaissance, conquête, tout conviendra aux cinéphiles comme aux néophytes.">
+<!--        <meta name="twitter:image:src" content="http://cinequest.fr/">-->
+        <meta name="twitter:domain" content="http://cinequest.fr/">
+        <!-- Facebook -->
+        <meta property="og:locale" content="fr_FR">
+        <meta property="og:locale:alternate" content="en_GB">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="CineQuest - Prenez part à l'épique bataille des noms de films">
+        <meta property="og:description" content="CineQuest est un jeu épique où vous devez trouver le nom du film dont provient la capture d'écran. Challenge, connaissance, conquête, tout conviendra aux cinéphiles comme aux néophytes.">
+        <meta property="og:url" content="http://cinequest.fr/">
+        <meta property="og:site_name" content="CineQuest - Prenez part à l'épique bataille des noms de films">
+<!--        <meta property="og:image" content="http://cinequest.fr/">-->
+        <!-- Google Plus -->
+        <meta itemprop="name" content="CineQuest - Prenez part à l'épique bataille des noms de films">
+        <meta itemprop="description" content="CineQuest est un jeu épique où vous devez trouver le nom du film dont provient la capture d'écran. Challenge, connaissance, conquête, tout conviendra aux cinéphiles comme aux néophytes.">
+<!--        <meta itemprop="image" content="http://cinequest.fr/">-->
+    
     </head>
     <body>
 
@@ -18,14 +64,13 @@
         
         <div id="lightbox">
             <a id="lightbox_close" class="uppercase_font action_btn white submit_btn">fermer</a>
-            <img src="http://aws.vdkimg.com/film/5/2/9/8/52988_backdrop_scale_1280xauto.jpg" alt="" />
+            <img src="" alt="" />
         </div>
 
         <%= yield %>
     
     </section>
-    
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js", "jquery.validate.js", cache: true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true, cache: true %>
     </body>
 </html>

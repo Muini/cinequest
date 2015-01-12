@@ -31,8 +31,10 @@
         <% if @post.difficulty == 0 && !@post.clue.nil? %>
             <section class="q_clue q_text_action">
                 <p class="blue lowercase_regular_font"><%= sanitize(@post.clue) %></p>
-                <% if current_user.id != @post.user.id %>
-                    <a>Cacher l'indice</a>
+                <% if logged_in? %>
+                    <% if current_user.id != @post.user.id %>
+                        <a>Cacher l'indice</a>
+                    <% end %>
                 <% end %>
             </section>
         <% end %>

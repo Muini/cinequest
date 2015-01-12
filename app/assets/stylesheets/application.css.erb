@@ -3,19 +3,12 @@
  *= require_self
  */
   
-@font-face {
-    font-family: 'novecento_m';
-    src: url('<%= asset_path("novecento_m.eot") %>');
-    src: url('<%= asset_path("novecento_m.eot?#iefix") %>') format('embedded-opentype'),
-         url('<%= asset_path("novecento_m.woff2") %>') format('woff2'),url('<%= asset_path("novecento_m.woff") %>') format('woff'),
-         url('<%= asset_path("novecento_m.ttf") %>') format('truetype');
-}
+@import url(http://fonts.googleapis.com/css?family=Lato:700);
 
 @font-face {
     font-family: 'roboto_l';
     src: url('<%= asset_path("roboto_l.ttf") %>');
 }
-
 @font-face {
     font-family: 'roboto_r';
     src: url('<%= asset_path("roboto_r.ttf") %>');
@@ -95,10 +88,12 @@ a{
 
 /* CLASSES RÉUTILISABLES */
 
-.uppercase_font{
-    font-family: novecento_m;
-    font-size: 1.2rem; 
-    letter-spacing: 0.1rem;  
+.uppercase_font {
+    font-family: Lato;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 .lowercase_regular_font{
@@ -234,12 +229,18 @@ a{
     padding: 5px 10px 5px 10px;
     cursor: pointer;
     margin-top: 20px;
-    text-transform: lowercase;
+    text-transform: uppercase;
 }
 
 .submit_btn:hover{
     color:#fafafa;
     background-color: #142b51;
+}
+
+.disabled_btn{
+    pointer-events: none;
+    cursor: default; 
+    opacity: 0.3;
 }
 
 #error_explanation{
@@ -252,6 +253,14 @@ a{
 }
 #error_explanation li{
     margin-top: 4px;
+}
+
+.loader{
+    display: block;
+    text-align: center;
+    padding-top: 150px;
+    width:100px;
+    margin: 0 auto;
 }
 
 /* GLOBAL CSS */
@@ -439,8 +448,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 }
 
 #quest{
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow:hidden;
     height: 100%;
     vertical-align: top;
 }
@@ -831,7 +839,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 
 .comment_points_won{
     float: right;
-    text-transform: lowercase;
+    text-transform: uppercase;
     margin: -20px 25px 0 0;
 }
 
@@ -839,7 +847,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 .comment_delete{
     display: none;
     float: right;
-    text-transform: lowercase;
+    text-transform: uppercase;
     color:#bf2e26;
     padding: 5px 10px 5px 10px;
     margin: -25px 25px 0 0;
@@ -853,7 +861,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 }
 
 .comment_validate{
-    text-transform: lowercase;
+    text-transform: uppercase;
     float: right;
     margin: -25px 25px 0 0;
     border:1px solid #142b51;
@@ -862,7 +870,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 .show_indice{
     float: right;
     margin: 31px 25px 0 0;
-    text-transform: lowercase;
+    text-transform: uppercase;
 }
 
 .p_user_image{
@@ -920,9 +928,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 }
 
 .header_logout{
-    text-transform: lowercase;
     float: right;
-    margin: 31px 25px 0 0;
+    margin: 33px 25px 0 0;
 }
 
 
