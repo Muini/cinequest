@@ -5,20 +5,20 @@
   
 @font-face {
     font-family: 'novecento_m';
-    src: url('novecento_m.eot');
-    src: url('novecento_m.eot?#iefix') format('embedded-opentype'),
-         url('novecento_m.woff2') format('woff2'),url('novecento_m.woff') format('woff'),
-         url('novecento_m.ttf') format('truetype');
+    src: url('<%= asset_path("novecento_m.eot") %>');
+    src: url('<%= asset_path("novecento_m.eot?#iefix") %>') format('embedded-opentype'),
+         url('<%= asset_path("novecento_m.woff2") %>') format('woff2'),url('<%= asset_path("novecento_m.woff") %>') format('woff'),
+         url('<%= asset_path("novecento_m.ttf") %>') format('truetype');
 }
 
 @font-face {
     font-family: 'roboto_l';
-    src: url('roboto_l.ttf');
+    src: url('<%= asset_path("roboto_l.ttf") %>');
 }
 
 @font-face {
     font-family: 'roboto_r';
-    src: url('roboto_r.ttf');
+    src: url('<%= asset_path("roboto_r.ttf") %>');
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -390,7 +390,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     content: '';
     width: 5px;
     height: 9px;
-    background: url('puce.png') no-repeat;
+    background: url('<%= asset_path("puce.png") %>') no-repeat;
     background-size: 5px 9px;
     position: absolute;
     right: 25px;
@@ -433,7 +433,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     content: '';
     width: 10px;
     height: 10px;
-    background: url('puce2.png') no-repeat;
+    background: url('<%= asset_path("puce2.png") %>') no-repeat;
     background-size: 10px 10px;
     margin-right: 7px;
 }
@@ -527,7 +527,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     display: table-cell;
     width: 9px;
     height: 9px;
-    background: url('zoom_in.png') no-repeat;
+    background: url('<%= asset_path("zoom_in.png") %>') no-repeat;
     background-size: 9px 9px;
     cursor: pointer;
     padding-right: 34px;
@@ -583,7 +583,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     height: 9px;
     padding: 0 21px 0 21px;
     text-indent: -100px;
-    background: url('puce3.png') no-repeat;
+    background: url('<%= asset_path("puce3.png") %>') no-repeat;
     background-size: 9px;
     background-position: 50%;
     overflow: hidden;
@@ -817,7 +817,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
     display: block;
     height: 25px;
     width: 93px;
-    background: url('allocine.png') no-repeat;
+    background: url('<%= asset_path("allocine.png") %>') no-repeat;
     background-size: contain;
     float: right;
     margin: 25px 25px 0 0;
