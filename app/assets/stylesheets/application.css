@@ -439,8 +439,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
 }
 
 #quest{
-    overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     height: 100%;
     vertical-align: top;
 }
@@ -693,9 +693,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', end
             transition: transform .9s ease-in-out;
 }
 .cqLightbox:hover{
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-            transform: scale(1.1);
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
 }
 
 /* Alert flash message */

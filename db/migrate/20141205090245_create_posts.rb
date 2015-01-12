@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :url_film
       t.references :user_id, index: true
       t.boolean :found
-      t.boolean :hardlevel
+      t.integer :difficulty
 
       t.timestamps
     end

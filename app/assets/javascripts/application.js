@@ -139,9 +139,10 @@ $('#quests_list li a').on('click',function(){
     {
         return false;
     }else{
+        $('#quest').append('<img class="loader" src="loader.gif" alt="Loading" />');
         $('#quests_list li a').removeClass('ql_active');
         $(this).addClass('ql_active');
-        TweenMax.to(document.querySelectorAll('.a_quest'),0.3,{opacity:0});
+//        TweenMax.to(document.querySelectorAll('.a_quest'),0.3,{opacity:0});
     }
 });
 
