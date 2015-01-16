@@ -26,6 +26,12 @@
                     <%= render 'comments/comment_form' %>
                 </section>
             <% end %>
+        <% else %>
+            <% unless @post.found || @post.closed %>
+                <section class="q_answer q_text_action q_connect">
+                    <p class="blue lowercase_regular_font">Vous connaissez la réponse ? </p><%= link_to "Connectez-vous", :login, class: "blue uppercase_font action_btn" %>
+                </section>
+            <% end %>
         <% end %>
 
         <% if @post.difficulty == 0 && !@post.clue.nil? %>

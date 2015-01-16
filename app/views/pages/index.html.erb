@@ -29,6 +29,29 @@
 </div>
 
 <div id="quest">
+    
+    <section id="home">
+        <header>
+            <h1 class="h_logo">
+                <%= image_tag "logo_640.png", alt: "CineQuest" %>
+            </h1>
+
+            <h2 class="lowercase_light_font blue h_baseline">Prenez part à l'épique bataille des noms de films</h2>
+        </header>
+        
+        <section>
+            <% if logged_in? %>
+                <h3 class="lowercase_light_font blue h_welcome">Bon retour sur CineQuest, <%= current_user.pseudo %> !</h3>
+            <% else %>
+                <h3 class="lowercase_light_font blue h_welcome">Bienvenue sur CineQuest !</h3>
+            <% end %>
+            <% if !logged_in? %>
+                <%= link_to "inscription", :signin, class: "blue uppercase_font action_btn" %>
+                <%= link_to "connexion", :login, class: "blue uppercase_font action_btn" %>
+            <% end %>
+        </section>
+        
+    </section>
 
 </div>
 
